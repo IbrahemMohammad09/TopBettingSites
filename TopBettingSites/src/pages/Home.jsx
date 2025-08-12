@@ -107,7 +107,7 @@ const Home = () => {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <h1 className="p-10 text-[#00FF88] text-xl font-bold">Top Betting Sites</h1>
+      <h1 className="p-10 text-[#00FF88] text-xl font-bold">Bet Bouns 24</h1>
 
         {/* أزرار الفلترة */}
         <div className="flex items-center justify-start shadow-bottom w-full overflow-x-auto flex-nowrap sm:justify-center scrollbar-hide">
