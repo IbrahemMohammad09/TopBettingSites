@@ -4,5 +4,5 @@
 
 
 body {
-    @apply bg-[#101B2D] text-[#ccc] leading-normal m-0;
+    @apply  text-[#ccc] leading-normal m-0;
   }

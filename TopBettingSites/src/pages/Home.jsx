@@ -115,8 +115,8 @@ const Home = () => {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <h1 className="p-10 text-[#00FF88] text-4xl font-bold">Bet Bouns 24</h1>
-      <p className="text-wrap mx-4 sm:mx-8 lg:mx-60 text-gray-300 text-center mx-auto">
+      <h1 className="p-10 text-[#009788] text-4xl font-bold">Bet Bouns 24</h1>
+      <p className="text-wrap mx-4 sm:mx-8 lg:mx-60 text-black text-center mx-auto">
         You will receive a bonus when registering on sports betting and casino sites,
         but what makes us special is that we give you the chance to get additional bonuses
         when registering on many of those sites through our platform. Try it yourself and see.
@@ -133,7 +133,7 @@ const Home = () => {
                     transition-all duration-300 ease-linear mx-[10px] whitespace-nowrap border-b-2
                     ${activeIndex === index
                     ? "text-[#00FF88] border-b-[#00FF88]"
-                    : "text-[#bbb] border-b-transparent hover:text-[#00FF88]"
+                    : "text-[#000000] border-b-transparent hover:text-[#00FF88]"
                     }
                 `}
                 >
@@ -159,7 +159,7 @@ const Home = () => {
 
       <div>
         <h1 className="
-            text-[#00FF88] bg-[#0D1323] 
+            text-[#009788] bg-[#0D1323] 
             px-4 py-2 
             rounded-md 
             mb-5 
@@ -211,31 +211,31 @@ const Home = () => {
 
 
         <div className='flex flex-col w-full'>
-            <div className="flex flex-row justify-center overflow-x-auto flex-nowrap bg-[#0D1323] w-full text-gray-300 px-4 py-7 text-center text-sm leading-relaxed">
+            <div className="flex flex-row justify-center overflow-x-auto flex-nowrap bg-black w-full text-gray-300 px-4 py-7 text-center text-sm leading-relaxed">
               <button
                 onClick={() => setActivePopupContatc(true)}
-                className="text-[#00FF88] no-underline mx-2 font-semibold hover:text-white transition-colors duration-300"
+                className="text-[#009788] no-underline mx-2 font-semibold hover:text-white transition-colors duration-300"
               >
                 Contact Us
               </button>
               {/* <div className="mx-4">|</div> */}
               <button
                 onClick={() => setActivePopupTerms("terms")}
-                className="text-[#00FF88] no-underline mx-2 font-semibold hover:text-white transition-colors duration-300"
+                className="text-[#009788] no-underline mx-2 font-semibold hover:text-white transition-colors duration-300"
               >
                 Terms and Conditions
               </button>
               {/* <div className="mx-4">|</div> */}
               <button
                 onClick={() => setActivePopupPrivacy("privacy")}
-                className="text-[#00FF88] no-underline mx-2 font-semibold hover:text-white transition-colors duration-300"
+                className="text-[#009788] no-underline mx-2 font-semibold hover:text-white transition-colors duration-300"
               >
                 Privacy Policy
               </button>
               {/* <div className="mx-4">|</div> */}
               <button
                 onClick={() => setActivePopupGambling("gambling")}
-                className="text-[#00FF88] no-underline mx-2 font-semibold hover:text-white transition-colors duration-300"
+                className="text-[#009788] no-underline mx-2 font-semibold hover:text-white transition-colors duration-300"
               >
                 Responsible Gambling Policy
               </button>
@@ -300,7 +300,7 @@ const Home = () => {
 
 
             <div className="py-4 mt-4 font-nunito">
-                <p className="text-white font-normal text-base text-center">
+                <p className="text-black font-normal text-base text-center">
                 © Copyright by{" "}
                 <a
                     style={{ color: "#2fb0cd" }}
