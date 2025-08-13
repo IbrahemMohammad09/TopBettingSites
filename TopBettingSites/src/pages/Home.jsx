@@ -161,9 +161,9 @@ const Home = () => {
         ))}
       </div>
 
-      <div>
+      <div className=''>
         <h1 className="
-            text-[#009788] bg-[#0D1323] 
+            text-[#009788] bg-gray-300 
             px-4 py-2 
             rounded-md 
             mb-5 
@@ -185,13 +185,13 @@ const Home = () => {
         py-5 
         text-base 
         text-gray-300 
-        bg-[#101B2D] 
+        bg-gray-300 
         rounded-lg 
         leading-relaxed
         "
         >
         {showArticle.map((item) => (
-        <div key={item.id} className="flex flex-row items-center m-4">
+        <div key={item.id} className="flex flex-row items-center m-4 bg-gray-700 rounded-lg ">
           <img className="w-[80px] h-[80px] mx-4" src={item.img} alt="logo" />
           <div className='bg-[rgba(16,27,45,0.2)] border-l-4 border-[#00FF88] rounded-md '>
             <h1 className='text-3xl px-4 py-3'>{item.title}</h1>
@@ -218,7 +218,7 @@ const Home = () => {
 
 
         <div className='flex flex-col w-full'>
-            <div className="flex flex-row justify-center overflow-x-auto flex-nowrap bg-black w-full text-gray-300 px-4 py-7 text-center text-sm leading-relaxed">
+            <div className="flex flex-row justify-center overflow-x-auto flex-nowrap bg-gray-300 w-full text-gray-300 px-4 py-7 text-center text-sm leading-relaxed">
               <button
                 onClick={() => setActivePopupContatc(true)}
                 className="text-[#009788] no-underline mx-2 font-semibold hover:text-white transition-colors duration-300"
@@ -292,7 +292,7 @@ const Home = () => {
             )}  
 
             {activePopupTerms && (
-              <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+              <div className="fixed inset-0  bg-opacity-50 flex items-center justify-center">
                 <div className="bg-white p-6 rounded-lg w-96 relative">
                   <button
                     className="absolute top-2 right-3 text-gray-500 hover:text-black"
