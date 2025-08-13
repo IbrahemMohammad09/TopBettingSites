@@ -54,21 +54,25 @@ const Home = () => {
     {
         id : 1,
         img : image,
+        title : "bet bouns ",
         text : "Choosing between bet365 and bwin depends largely on what you value most in a betting platform.bet365 is renowned for its extensive live betting options and competitive odds, providing an immersive experiencefor sports enthusiasts. On the other hand, bwin offers a wide range of markets and a user-friendly interfacethat caters well to beginners. Both platforms provide generous bonuses and solid mobile apps. Ultimately, your choice should align with your betting preferences and priorities."
     },
     {
         id : 2,
         img : image,
+        title : "bet bouns ",
         text : "Choosing between bet365 and bwin depends largely on what you value most in a betting platform.bet365 is renowned for its extensive live betting options and competitive odds, providing an immersive experiencefor sports enthusiasts. On the other hand, bwin offers a wide range of markets and a user-friendly interfacethat caters well to beginners. Both platforms provide generous bonuses and solid mobile apps. Ultimately, your choice should align with your betting preferences and priorities."
     },
     {
         id : 3,
         img : image,
+        title : "bet bouns ",
         text : "Choosing between bet365 and bwin depends largely on what you value most in a betting platform.bet365 is renowned for its extensive live betting options and competitive odds, providing an immersive experiencefor sports enthusiasts. On the other hand, bwin offers a wide range of markets and a user-friendly interfacethat caters well to beginners. Both platforms provide generous bonuses and solid mobile apps. Ultimately, your choice should align with your betting preferences and priorities."
     },
     {
         id : 4,
         img : image,
+        title : "bet bouns ",
         text : "Choosing between bet365 and bwin depends largely on what you value most in a betting platform.bet365 is renowned for its extensive live betting options and competitive odds, providing an immersive experiencefor sports enthusiasts. On the other hand, bwin offers a wide range of markets and a user-friendly interfacethat caters well to beginners. Both platforms provide generous bonuses and solid mobile apps. Ultimately, your choice should align with your betting preferences and priorities."
     },
   ]
@@ -187,11 +191,14 @@ const Home = () => {
         "
         >
         {showArticle.map((item) => (
-        <div key={item.id} className="flex flex-col items-center">
-            <img className="w-[80px] h-[80px] mb-4" src={item.img} alt="logo" />
-            <p className="bg-[rgba(16,27,45,0.2)] border-l-4 border-[#00FF88] px-4 py-3 rounded-md text-gray-300">
+        <div key={item.id} className="flex flex-row items-center m-4">
+          <img className="w-[80px] h-[80px] mx-4" src={item.img} alt="logo" />
+          <div className='bg-[rgba(16,27,45,0.2)] border-l-4 border-[#00FF88] rounded-md '>
+            <h1 className='text-3xl px-4 py-3'>{item.title}</h1>
+            <p className="px-4 py-3 text-gray-300">
             {item.text}
             </p>
+          </div> 
         </div>
         ))}
 
