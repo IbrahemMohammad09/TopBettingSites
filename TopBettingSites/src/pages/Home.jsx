@@ -161,7 +161,7 @@ const Home = () => {
         ))}
       </div>
 
-      <div className=''>
+      <div className='flex items-center justify-center shadow-bottom w-full'>
         <h1 className="
             text-[#009788] bg-gray-300 
             px-4 py-2 
@@ -177,6 +177,7 @@ const Home = () => {
         </h1>
       </div>
       <div className="
+        
         max-w-[800px] 
         mx-auto 
         my-[30px] 
@@ -185,7 +186,7 @@ const Home = () => {
         py-5 
         text-base 
         text-gray-300 
-        bg-gray-300 
+        
         rounded-lg 
         leading-relaxed
         "
