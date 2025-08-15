@@ -10,7 +10,7 @@ const Card = ({ img, title, desc, bouns, url }) => {
             <h1 className="text-lg text-black font-bold">{title}</h1>
             <p>{desc}</p>
             <p className="font-semibold text-[#ffd700] animate-pulse-scale">
-                Bonus: {bouns}
+                Bonus: {bouns} %
             </p>
 
 

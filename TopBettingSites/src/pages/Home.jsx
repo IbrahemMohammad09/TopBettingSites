@@ -5,7 +5,7 @@ import GoogleAd from '../components/GoogleAd';
 import ArticleCard from '../components/ArticleCard';
 
 const Home = () => {
-  const buttons = [
+  const Categories = [
     { id: 1, name: "All" },
     { id: 2, name: "Bouns" },
     { id: 3, name: "PayPal" },
@@ -142,7 +142,7 @@ const toggleArticles = () => {
       </p>
         {/* أزرار الفلترة */}
         <div className="flex items-center justify-start shadow-bottom w-full overflow-x-auto flex-nowrap sm:justify-center scrollbar-hide">
-            {buttons.map((item, index) => (
+            {Categories.map((item, index) => (
                 <button
                 key={item.id}
                 onClick={() => handleFilter(item.name, index)}
