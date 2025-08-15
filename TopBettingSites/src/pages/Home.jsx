@@ -92,6 +92,18 @@ const Home = () => {
   const [activePopupGambling, setActivePopupGambling] = useState(false);
 
 
+  // بدل الدالة showArt السابقة
+const toggleArticles = () => {
+  if (isHiddenArt) {
+    // عرض جميع المقالات
+    setShowArticle(article);
+    setIsHiddenArt(false);
+  } else {
+    // عرض أول 3 مقالات
+    setShowArticle(article.slice(0, 3));
+    setIsHiddenArt(true);
+  }
+};
 
   useEffect(() => {
     setShowArticle(article.slice(0, 3));
@@ -195,13 +207,14 @@ const Home = () => {
         >
         {showArticle.map((item) => (
         <ArticleCard 
+          key={item.id} 
           title={item.title}
           image={item.img}
           content={item.text}
           />
         ))}
 
-        {isHiddenArt ? (
+        {/* {isHiddenArt ? (
         <button 
             onClick={() => showArt()}
             className="bg-[#00FF88] text-[#101B2D] border-0 px-6 py-1 font-semibold text-base rounded-md cursor-pointer my-5 mx-auto block transition-colors duration-300 ease-in-out
@@ -210,7 +223,15 @@ const Home = () => {
         </button>
         ) : (
         <div></div>
-        )}
+        )} */}
+
+<button
+  onClick={toggleArticles}
+  className="bg-[#00FF88] text-[#101B2D] border-0 px-6 py-1 font-semibold text-base rounded-md cursor-pointer my-5 mx-auto block transition-colors duration-300 ease-in-out hover:bg-[#00cc66] hover:text-white"
+>
+  {isHiddenArt ? "Show More Articles" : "Show Less Articles"}
+</button>
+
 
       </div>
 
