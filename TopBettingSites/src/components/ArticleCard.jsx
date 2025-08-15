@@ -6,14 +6,14 @@ export default function ArticleCard({ title, image, content }) {
   const previewText = content.length > 150 ? content.slice(0, 150) + "..." : content;
 
   return (
-    <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden mb-6">
+    <div className="flex flex-col justify-center items-center max-w-2xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden mb-6">
       {/* صورة المقال */}
-      <img src={image} alt={title} className="w-full h-64 object-cover" />
+      <img src={image} alt={title} className="w-72 h-72 object-cover " />
 
       {/* محتوى المقال */}
-      <div className="p-6">
+      <div className="p-6 text-center border-l-4 border-[#00FF88] rounded-md ">
         {/* العنوان */}
-        <h2 className="text-2xl font-bold text-gray-800 mb-4">{title}</h2>
+        <h2 className="text-3xl text-[#009788] font-bold mb-4">{title}</h2>
 
         {/* النص */}
         <p className="text-gray-700 leading-relaxed">
@@ -24,9 +24,10 @@ export default function ArticleCard({ title, image, content }) {
         {content.length > 150 && (
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+            className="bg-[#009788] text-[#101B2D] border-0 px-6 py-1 font-semibold text-base rounded-md cursor-pointer my-5 mx-auto block transition-colors duration-300 ease-in-out
+            hover:bg-[#00cc66] hover:text-white"
           >
-            {isExpanded ? "عرض أقل" : "عرض المزيد"}
+            {isExpanded ? "Show Lese" : "Show More"}
           </button>
         )}
       </div>
