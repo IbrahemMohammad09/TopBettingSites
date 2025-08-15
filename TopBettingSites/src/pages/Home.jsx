@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import image from '../../public/logo.PNG';
 import Card from '../components/Card';
+import GoogleAd from '../components/GoogleAd';
 
 const Home = () => {
   const buttons = [
@@ -321,6 +322,11 @@ const Home = () => {
                 – All rights reserved.
                 </p>
             </div>
+
+            <div className='max-h-[10px]'>
+              <GoogleAd slot="1234567890" />
+            </div>
+
         </div>
     </div>
   );
