@@ -324,7 +324,7 @@ const Home = () => {
             </div>
 
             <div className='max-h-[10px]'>
-              <GoogleAd slot="1234567890" />
+              {/* <GoogleAd slot="1234567890" /> */}
             </div>
 
         </div>
