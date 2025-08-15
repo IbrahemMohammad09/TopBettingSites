@@ -194,16 +194,6 @@ const Home = () => {
         "
         >
         {showArticle.map((item) => (
-        // <div key={item.id} className="flex flex-row items-center m-4 bg-gray-700 rounded-lg ">
-        //   <img className="w-[80px] h-[80px] mx-4" src={item.img} alt="logo" />
-        //   <div className='bg-[rgba(16,27,45,0.2)] border-l-4 border-[#00FF88] rounded-md '>
-        //     <h1 className='text-3xl px-4 py-3'>{item.title}</h1>
-        //     <p className="px-4 py-3 text-gray-300">
-        //     {item.text}
-        //     </p>
-        //   </div> 
-        // </div>
-
         <ArticleCard 
           title={item.title}
           image={item.img}
