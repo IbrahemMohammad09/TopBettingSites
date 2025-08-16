@@ -66,12 +66,12 @@ const Login = () => {
     };
 
   return (
-    <div className="flex flex-col items-center justify-center mt-20">
-        <div className="md:pt-40 flex flex-col mb-7 container-form items-center">
-            <p className="text-center font-normal text-6xl text-[#241E1E] mb-12">Welcome</p>
+    <div className="flex flex-col items-center justify-center mt-20 ">
+        <div className="md:pt-12 flex flex-col mb-7 container-form items-center border-4 border-[#00FF88] rounded-md ">
+            <p className="text-center font-normal text-5xl text-[#241E1E] m-12 ">Welcome</p>
             <form className="max-w-[200px] w-full">
                 <div className="flex flex-col mb-10 w-full">
-                    <label className="font-semibold text-center text-2xl inter text-black">
+                    <label className="font-semibold  text-2xl inter text-black">
                         User Name
                     </label>
                     <div className="relative">
@@ -88,7 +88,7 @@ const Login = () => {
                     </div>
 
                     <div className="flex flex-col">
-                        <label className="font-semibold text-center text-2xl inter text-black">Password</label>
+                        <label className="font-semibold text-2xl inter text-black">Password</label>
                         <div className="relative flex items-center">
                             <span className="absolute left-0 top-1/2 transform -translate-y-1/2 p-2">
                                 <FaLock /> 
