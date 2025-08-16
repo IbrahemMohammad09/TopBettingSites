@@ -1,14 +1,10 @@
 import React from 'react'
 import SideBar from './SideBar'
 import { useState } from 'react'
-import ArticleCard from '../../components/ArticleCard'
+import ArticleCardDashboard from './ArticleCardDashboard'
 import image from '../../../public/logo.PNG'
 
 const DashboardArticles = () => {
-    // const [isExpanded, setIsExpanded] = useState(false);
-
-    // const previewText = content.length > 150 ? content.slice(0, 150) + "..." : content;
-
     const article = [
         {
             id : 1,
@@ -41,8 +37,8 @@ const DashboardArticles = () => {
         <div>
             <h1 className='items-center justify-center text-center text-3xl m-4 mb-4'>Welcome to Dashboard</h1>
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-6 p-4'>
-                {article.map((item) => (
-                    <ArticleCard 
+                {article.map((item,index) => (
+                    <ArticleCardDashboard 
                         key={item.id} 
                         title={item.title}
                         image={item.img}
