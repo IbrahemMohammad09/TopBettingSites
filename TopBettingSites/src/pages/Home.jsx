@@ -6,7 +6,7 @@ import ArticleCard from '../components/ArticleCard';
 
 const Home = () => {
   const Categories = [
-    { id: 1, name: "All" },
+    { id: 1, name: "Sites" },
     { id: 2, name: "Bouns" },
     { id: 3, name: "PayPal" },
     { id: 4, name: "PaySafe" },
@@ -134,7 +134,7 @@ const toggleArticles = () => {
   return (
     <div className="flex flex-col items-center justify-center">
       <h1 className="p-10 text-[#009788] text-4xl font-bold">Bet Bouns 24</h1>
-      <p className="text-wrap mx-4 sm:mx-8 lg:mx-60 text-black text-center mx-auto">
+      <p className="text-wrap  mx-4 sm:mx-8 lg:mx-60 text-black text-center mx-auto  p-px">
         You will receive a bonus when registering on sports betting and casino sites,
         but what makes us special is that we give you the chance to get additional bonuses
         when registering on many of those sites through our platform. Try it yourself and see.
@@ -147,7 +147,7 @@ const toggleArticles = () => {
                 key={item.id}
                 onClick={() => handleFilter(item.name, index)}
                 className={`
-                    cursor-pointer px-[25px] py-[12px] font-semibold text-base border-0 bg-transparent
+                    cursor-pointer px-[2px] py-[12px] font-semibold text-base border-0 bg-transparent
                     transition-all duration-300 ease-linear mx-[10px] whitespace-nowrap border-b-2
                     ${activeIndex === index
                     ? "text-[#00FF88] border-b-[#00FF88]"
@@ -175,7 +175,7 @@ const toggleArticles = () => {
         ))}
       </div>
 
-      <div className='flex items-center justify-center shadow-bottom w-full'>
+      <div className='flex items-center justify-center shadow-bottom mx-auto px-4'>
         <h1 className="
             text-[#009788] bg-gray-300 
             px-4 py-2 
