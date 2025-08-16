@@ -1,0 +1,75 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { FiMenu, FiX } from "react-icons/fi";
+// import logo from "../../../assets/image/logo.png";
+// import home from "../../../assets/image/Dashboard/SideBar/home.svg";
+// import services from "../../../assets/image/Dashboard/SideBar/services.svg";
+// import order from "../../../assets/image/Dashboard/SideBar/order.svg";
+// import rating from "../../../assets/image/Dashboard/SideBar/rating.svg";
+// import messages from "../../../assets/image/Dashboard/SideBar/messages.svg";
+// import projectwhite from "../../../assets/image/Dashboard/SideBar/projectwhite.svg";
+import { useDispatch } from "react-redux";
+import { logout } from "../../redux/authSlice";
+import { useNavigate } from "react-router-dom";
+
+
+export default function SideBar() {
+    const [isOpen, setIsOpen] = useState(false);
+    const [showPopup, setShowPopup] = useState(false);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    
+    
+    
+    const handleLogout = () =>{
+
+        dispatch(logout());
+        navigate("/dashboard");
+        
+        
+    }
+
+    return (
+        <>
+            {/* Menu icon*/}
+            <div className="md:hidden p-4 ">
+                <FiMenu className="text-[#00cc66] text-3xl cursor-pointer" onClick={() => setIsOpen(true)} />
+            </div>
+            
+            <div className={`bg-[#009788] w-50 flex flex-col items-center gap-6 fixed top-0 left-0 h-full z-50 transition-transform transform ${isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 md:relative md:w-28 overflow-y-auto max-h-screen overscroll-contain`}>
+
+                {/* close icon*/}
+                <div className="w-full  p-4 md:hidden">
+                    <FiX className="text-white text-3xl cursor-pointer" onClick={() => setIsOpen(false)} />
+                </div>
+
+                <div className="flex flex-col items-center gap-10 h-screen mt-6 px-4">
+
+                    <div className="flex flex-col items-center">
+                        <Link to="/dashboard/home" className="font-semibold text-base text-white Poppins">
+                        Categories</Link>
+                    </div>
+
+                    <div className="flex flex-col items-center">
+                        <Link to="/dashboard/sites" className="font-semibold text-base text-white Poppins">
+                        Sites</Link>
+                    </div>
+
+                    <div className="flex flex-col items-center">
+                        <Link to="/dashboard/articles" className="font-semibold text-base text-white Poppins">
+                        Articles</Link>
+                    </div>
+
+
+                    <button
+                        onClick={handleLogout}
+                        className="mb-8 w-[100px] border-4 border-[#00cc66] text-[#00cc66] text-lg font-medium rounded-3xl shadow-md bg-white hover:bg-[#00cc66] hover:text-white transition-all"
+                        >
+                        log out 
+                    </button>
+
+                </div>
+            </div>
+        </>
+    );
+}

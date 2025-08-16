@@ -1,5 +1,4 @@
-const URL = "https://www.betbonus24.com/api/";
-
+const URL = "https://www.betbonus24.com/";
 
 const Api = {
     GET: {
@@ -11,7 +10,7 @@ const Api = {
     POST: {
         CREATEORDER: `${URL}api/requests/create/`,
         CREATEPICTURE: `${URL}api/pictures/create/`,
-        LOGIN: `${URL}api/login/`,
+        LOGIN: `${URL}api/admin/login/`,
         CREATERATE: URL+'api/rates/create/',
     },
     DELETE: (id) => ({
