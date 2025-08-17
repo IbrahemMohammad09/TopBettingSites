@@ -18,7 +18,6 @@ const DashboardSitesAddPhoto = lazy(() => import("./pages/dashboard/DashboardSit
 function App() {
   return (
     <BrowserRouter>
-
         <Routes>
           <Route path="/" element={<HomePage />} />
 
@@ -41,7 +40,6 @@ function App() {
 
 
         </Routes>
-
     </BrowserRouter>
   );
 }
