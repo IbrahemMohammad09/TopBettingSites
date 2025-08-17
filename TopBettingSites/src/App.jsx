@@ -10,6 +10,7 @@ const ErrorPage = lazy(() => import("./pages/ErrorPage"));
 const DashoardHome = lazy(() => import("./pages/dashboard/DashboardHome"))
 const DashboardSites = lazy(() => import("./pages/dashboard/DashboardSites"))
 const DashboardArticles = lazy(() => import("./pages/dashboard/DashboardArticles"))
+const DashboardCategoriesAdd = lazy(() => import("./pages/dashboard/DashboardCategoriesAdd"))
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             "/dashboard/home" : DashoardHome,
             "/dashboard/sites" : DashboardSites,
             "/dashboard/articles" : DashboardArticles,
+            "/dashboard/categories/add" : DashboardCategoriesAdd
 
             }).map(([path, Component]) => (
               <Route key={path} path={path} element={<ProtectedRoute><Component /></ProtectedRoute>} />

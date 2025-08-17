@@ -2,6 +2,7 @@ import React from 'react'
 import SideBar from './SideBar'
 import { MdDeleteForever } from "react-icons/md";
 import { MdModeEditOutline } from "react-icons/md";
+import { Link } from 'react-router-dom';
 
 const DashboardHome = () => {
 
@@ -20,9 +21,9 @@ const DashboardHome = () => {
             <h1 className='items-center justify-center text-center text-3xl'>Welcome to Dashboard</h1>
             <div className='items-center justify-center text-center'>
                 <h1 className='text-xl mb-4'>here you can view , add and delet Categories</h1>
-                <a className='bg-[#009788] text-[#101B2D] border-0 px-6 py-1 font-semibold text-base rounded-md cursor-pointer transition-colors duration-300 ease-in-out hover:bg-[#00cc66] hover:text-white'
+                <Link to='/dashboard/categories/add' className='bg-[#009788] text-[#101B2D] border-0 px-6 py-1 font-semibold text-base rounded-md cursor-pointer transition-colors duration-300 ease-in-out hover:bg-[#00cc66] hover:text-white'
                     >Add Categories
-                </a>
+                </Link>
             </div>
             <div className='flex flex-col'>
                 {Categories.map((item,index) => (
