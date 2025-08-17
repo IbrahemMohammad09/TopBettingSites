@@ -18,6 +18,12 @@ const DashboardHome = () => {
         <SideBar />
         <div className=''>
             <h1 className='items-center justify-center text-center text-3xl'>Welcome to Dashboard</h1>
+            <div className='items-center justify-center text-center'>
+                <h1 className='text-xl mb-4'>here you can view , add and delet Categories</h1>
+                <a className='bg-[#009788] text-[#101B2D] border-0 px-6 py-1 font-semibold text-base rounded-md cursor-pointer transition-colors duration-300 ease-in-out hover:bg-[#00cc66] hover:text-white'
+                    >Add Categories
+                </a>
+            </div>
             <div className='flex flex-col'>
                 {Categories.map((item,index) => (
                     <div key={index} className="flex flex-row mt-8 bg-gray-700 m-4 p-4 items-center justify-between">

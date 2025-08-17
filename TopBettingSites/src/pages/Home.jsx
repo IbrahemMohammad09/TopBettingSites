@@ -4,6 +4,7 @@ import Card from '../components/Card';
 import GoogleAd from '../components/GoogleAd';
 import ArticleCard from '../components/ArticleCard';
 
+
 const Home = () => {
   const Categories = [
     { id: 1, name: "Sites" },
@@ -21,7 +22,7 @@ const Home = () => {
       title: "Sites",
       desc: "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ",
       bouns: "50",
-      rate: 4.5,
+      rate: 3,
       url: "https://www.sparkengdev.com"
     },
     {
@@ -56,6 +57,36 @@ const Home = () => {
       },
       {
         id: 5,
+        img: image,
+        categorie: "PaySafe",
+        title: "PaySafe",
+        desc: "lorem",
+        bouns: "50",
+        rate: 4.5,
+        url: "https://www.sparkengdev.com"
+      },
+      {
+        id: 6,
+        img: image,
+        categorie: "PaySafe",
+        title: "PaySafe",
+        desc: "lorem",
+        bouns: "50",
+        rate: 4.5,
+        url: "https://www.sparkengdev.com"
+      },
+      {
+        id: 7,
+        img: image,
+        categorie: "PaySafe",
+        title: "PaySafe",
+        desc: "lorem",
+        bouns: "50",
+        rate: 4.5,
+        url: "https://www.sparkengdev.com"
+      },
+      {
+        id: 8,
         img: image,
         categorie: "PaySafe",
         title: "PaySafe",
@@ -189,7 +220,7 @@ const toggleArticles = () => {
         ))}
       </div>
 
-      <div className='flex items-center justify-center shadow-bottom mx-auto px-4'>
+      <div className='flex items-center justify-center shadow-bottom mx-auto w-full px-4'>
         <h1 className="
             text-[#009788] bg-gray-300 
             px-4 py-2 
@@ -201,7 +232,8 @@ const toggleArticles = () => {
             m-0
             unicode-bidi-isolate
         ">
-            Which is Better: bet365 or bwin?
+            {/* Which is Better: bet365 or bwin? */}
+            Articles Sections
         </h1>
       </div>
       <div className="
