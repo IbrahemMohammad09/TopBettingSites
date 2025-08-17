@@ -4,6 +4,7 @@ import image from '../../../public/logo.PNG';
 import { MdDeleteForever } from "react-icons/md";
 import { MdModeEditOutline } from "react-icons/md";
 import {FaStar} from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const DashboardSites = () => {
     const sites = [
@@ -97,9 +98,9 @@ const DashboardSites = () => {
             <h1 className='items-center justify-center text-center text-3xl'>Welcome to Dashboard</h1>
             <div className='items-center justify-center text-center'>
                 <h1 className='text-xl mb-4'>here you can view , add and delet Categories</h1>
-                <a className='bg-[#009788] text-[#101B2D] border-0 px-6 py-1 font-semibold text-base rounded-md cursor-pointer transition-colors duration-300 ease-in-out hover:bg-[#00cc66] hover:text-white'
+                <Link to='/dashboard/sites/add' className='bg-[#009788] text-[#101B2D] border-0 px-6 py-1 font-semibold text-base rounded-md cursor-pointer transition-colors duration-300 ease-in-out hover:bg-[#00cc66] hover:text-white'
                     >Add Sites
-                </a>
+                </Link>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
                 {sites.map((item,index) => (            

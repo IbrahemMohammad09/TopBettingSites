@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import './App.css';
 import Login from "./pages/dashboard/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
+import { LuAxe } from "react-icons/lu";
 
 const HomePage = lazy(() => import("./pages/home"));
 const ErrorPage = lazy(() => import("./pages/ErrorPage"));
@@ -11,6 +12,8 @@ const DashoardHome = lazy(() => import("./pages/dashboard/DashboardHome"))
 const DashboardSites = lazy(() => import("./pages/dashboard/DashboardSites"))
 const DashboardArticles = lazy(() => import("./pages/dashboard/DashboardArticles"))
 const DashboardCategoriesAdd = lazy(() => import("./pages/dashboard/DashboardCategoriesAdd"))
+const DashboardSitesAdd = lazy(() => import("./pages/dashboard/DashboardSitesAdd"))
+const DashboardSitesAddPhoto = lazy(() => import("./pages/dashboard/DashboardSitesAddPhoto"))
 
 function App() {
   return (
@@ -25,7 +28,9 @@ function App() {
             "/dashboard/home" : DashoardHome,
             "/dashboard/sites" : DashboardSites,
             "/dashboard/articles" : DashboardArticles,
-            "/dashboard/categories/add" : DashboardCategoriesAdd
+            "/dashboard/categories/add" : DashboardCategoriesAdd,
+            "/dashboard/sites/add" : DashboardSitesAdd,
+            "/dashboard/sites/add/photo" : DashboardSitesAddPhoto,
 
             }).map(([path, Component]) => (
               <Route key={path} path={path} element={<ProtectedRoute><Component /></ProtectedRoute>} />
