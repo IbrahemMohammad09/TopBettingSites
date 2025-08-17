@@ -37,7 +37,6 @@ function App() {
           <Route path="/error" element={<ErrorPage />} />
           <Route path="*" element={<Navigate to="/error" replace />}/>
 
-
         </Routes>
     </BrowserRouter>
   );
