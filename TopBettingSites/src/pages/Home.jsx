@@ -17,37 +17,51 @@ const Home = () => {
     {
       id: 1,
       img: image,
-      categorie: "Bouns",
-      title: "seo",
-      desc: "lorem",
+      categorie: "Sites",
+      title: "Sites",
+      desc: "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ",
       bouns: "50",
+      rate: 4.5,
       url: "https://www.sparkengdev.com"
     },
     {
       id: 2,
       img: image,
-      categorie: "PayPal",
-      title: "seo",
+      categorie: "Bouns",
+      title: "Bouns",
       desc: "lorem",
       bouns: "50",
+      rate: 4.5,
       url: "https://www.sparkengdev.com"
     },
     {
       id: 3,
       img: image,
-      categorie: "PaySafe",
-      title: "seo",
+      categorie: "PayPal",
+      title: "PayPal",
       desc: "lorem",
       bouns: "50",
+      rate: 4.5,
       url: "https://www.sparkengdev.com"
     },
     {
         id: 4,
         img: image,
         categorie: "PaySafe",
-        title: "seo",
+        title: "PaySafe",
         desc: "lorem",
         bouns: "50",
+        rate: 4.5,
+        url: "https://www.sparkengdev.com"
+      },
+      {
+        id: 5,
+        img: image,
+        categorie: "PaySafe",
+        title: "PaySafe",
+        desc: "lorem",
+        bouns: "50",
+        rate: 4.5,
         url: "https://www.sparkengdev.com"
       },
   ];
@@ -110,7 +124,9 @@ const toggleArticles = () => {
   }, []);
 
   useEffect(() => {
-    setActiveCards(sites);
+    const firstCategoryName = Categories[0].name;
+    const filtered = sites.filter(item => item.categorie === firstCategoryName);
+    setActiveCards(filtered);
   }, []);
 
 
@@ -118,12 +134,9 @@ const toggleArticles = () => {
     setActiveIndex(index);
     setActiveCate(category);
 
-    if (category === "All") {
-      setActiveCards(sites);
-    } else {
-      const filtered = sites.filter(item => item.categorie === category);
-      setActiveCards(filtered);
-    }
+    const filtered = sites.filter(item => item.categorie === category);
+    setActiveCards(filtered);
+
   };
 
   const showArt =()=> {
@@ -171,6 +184,7 @@ const toggleArticles = () => {
             desc={item.desc}
             bouns={item.bouns}
             url={item.url}
+            rate={item.rate}
           />
         ))}
       </div>
