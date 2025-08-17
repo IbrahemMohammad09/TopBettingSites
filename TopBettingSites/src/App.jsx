@@ -4,7 +4,6 @@ import './App.css';
 import Login from "./pages/dashboard/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
 
-
 const HomePage = lazy(() => import("./pages/Home"));
 const ErrorPage = lazy(() => import("./pages/ErrorPage"));
 
