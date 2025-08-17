@@ -3,9 +3,9 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import './App.css';
 import Login from "./pages/dashboard/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
-import { LuAxe } from "react-icons/lu";
 
-const HomePage = lazy(() => import("./pages/home"));
+
+const HomePage = lazy(() => import("./pages/Home"));
 const ErrorPage = lazy(() => import("./pages/ErrorPage"));
 
 const DashoardHome = lazy(() => import("./pages/dashboard/DashboardHome"))
