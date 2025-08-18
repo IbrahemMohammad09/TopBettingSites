@@ -16,7 +16,7 @@ const Api = {
     DELETE: (id) => ({
         DELETECategories: `${URL}api/admin/categories/${id}/`,
         DELETESites: `${URL}api/admin/sites/${id}/`,
-        DELETEArticles: `${URL}aapi/admin/articles/${id}/`
+        DELETEArticles: `${URL}api/admin/articles/${id}/`
     }),
     PUT: (id) => ({
         UPDATECategories: `${URL}api/admin/categories/${id}/`,

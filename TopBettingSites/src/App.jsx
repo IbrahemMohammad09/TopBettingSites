@@ -8,11 +8,17 @@ const HomePage = lazy(() => import("./pages/Home"));
 const ErrorPage = lazy(() => import("./pages/ErrorPage"));
 
 const DashoardHome = lazy(() => import("./pages/dashboard/DashboardHome"))
-const DashboardSites = lazy(() => import("./pages/dashboard/DashboardSites"))
-const DashboardArticles = lazy(() => import("./pages/dashboard/DashboardArticles"))
 const DashboardCategoriesAdd = lazy(() => import("./pages/dashboard/DashboardCategoriesAdd"))
 const DashboardCategoriesEdit = lazy(() => import("./pages/dashboard/DashboardCategoriesEdit"))
+
+const DashboardSites = lazy(() => import("./pages/dashboard/DashboardSites"))
 const DashboardSitesAdd = lazy(() => import("./pages/dashboard/DashboardSitesAdd"))
+const DashboardSitesEdit = lazy(() => import("./pages/dashboard/DashboardSitesEdit"))
+
+const DashboardArticles = lazy(() => import("./pages/dashboard/DashboardArticles"))
+const DashboardArticlesAdd = lazy(() => import("./pages/dashboard/DashboardArticlesAdd"))
+const DashboardArticlesEdit = lazy(() => import("./pages/dashboard/DashboardArticlesEdit"))
+
 
 
 
@@ -26,12 +32,14 @@ function App() {
 
           {Object.entries({
             "/dashboard/home" : DashoardHome,
-            "/dashboard/sites" : DashboardSites,
-            "/dashboard/articles" : DashboardArticles,
             "/dashboard/categories/add" : DashboardCategoriesAdd,
             "/dashboard/categories/edit/:id" : DashboardCategoriesEdit,
+            "/dashboard/sites" : DashboardSites,
             "/dashboard/sites/add" : DashboardSitesAdd,
-
+            "/dashboard/sites/edit/:id" : DashboardSitesEdit,
+            "/dashboard/articles" : DashboardArticles,
+            "/dashboard/articles/add" : DashboardArticlesAdd,
+            "/dashboard/articles/edit/:id" : DashboardArticlesEdit,
 
             }).map(([path, Component]) => (
               <Route key={path} path={path} element={<ProtectedRoute><Component /></ProtectedRoute>} />

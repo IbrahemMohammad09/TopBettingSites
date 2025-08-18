@@ -24,7 +24,7 @@ const DashboardSites = () => {
     },[])
 
     const deleteSite = async (id, name) => {
-        const confirmDelete = window.confirm(`Are you sure you want to delete this Site ${name}?`);
+        const confirmDelete = window.confirm(`هل انت متأكد من أنك تريد حذف هذا الموقع ${name}`);
         if (confirmDelete) {
             try {
                 await axios.delete(`https://www.betbonus24.com/api/admin/sites/${id}/`);
@@ -39,11 +39,11 @@ const DashboardSites = () => {
     <div className=' md:flex  gap-14 '>
         <SideBar />
         <div>
-            <h1 className='items-center justify-center text-center text-3xl'>Welcome to Dashboard</h1>
+            <h1 className='items-center justify-center text-center text-3xl'>اهلا بك في لوحة التحكم</h1>
             <div className='items-center justify-center text-center'>
-                <h1 className='text-xl mb-4'>here you can view , add and delete Sites</h1>
+                <h1 className='text-xl mb-4'>هنا يمكنك اضافة ,تعديل وحذف المواقع</h1>
                 <Link to='/dashboard/sites/add' className='bg-[#009788] text-[#101B2D] border-0 px-6 py-1 font-semibold text-base rounded-md cursor-pointer transition-colors duration-300 ease-in-out hover:bg-[#00cc66] hover:text-white'
-                    >Add Sites
+                    >اضافة موقع
                 </Link>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
@@ -61,7 +61,7 @@ const DashboardSites = () => {
                                     <FaStar
                                         key={i}
                                         className={
-                                        i < item.bonus
+                                        i < item.rate
                                             ? "text-[#F6973F]"
                                             : "text-[#F6973F] opacity-30"
                                         }
@@ -89,7 +89,8 @@ const DashboardSites = () => {
                                 </Link>
                             )}
                         </div>
-                        <p className='p-4 pt-0 text-lg text-black w-full'>{"category name : "+item.category.name}</p>
+                        <p className='p-4 pt-0 text-lg text-black w-full'>{"اسم الفئة : "+item.category.name}</p>
+                        <p className='p-4 pt-0 text-lg text-black w-full'>{"ترتيب العرض : "+item.order}</p>
                         <p className='p-4 pt-0  w-full'>{item.link}</p>
                         <p className='p-4 pt-0  w-full'>{item.text}</p>
                         
@@ -97,9 +98,9 @@ const DashboardSites = () => {
                             <button onClick={()=>{deleteSite(item.id, item.name)}}>
                                 <MdDeleteForever className="cursor-pointer text-red-500 hover:text-red-700 mx-8" />
                             </button>
-                            <div>
+                            <Link to={`/dashboard/sites/edit/${item.id}`}>
                                 <MdModeEditOutline className="cursor-pointer text-yellow-400 hover:text-yellow-600 mx-8" />
-                            </div>
+                            </Link>
                         </div>
                     </div>
 

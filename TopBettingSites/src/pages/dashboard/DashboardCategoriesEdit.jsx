@@ -5,7 +5,7 @@ import axios from 'axios';
 import { Api } from '../../constant/api';
 
 const DashboardCategoriesEdit = () => {
-  const { id } = useParams(); // id = "6" من الرابط
+  const { id } = useParams();
   const categoryId = Number(id);
 
   const navigate = useNavigate();
@@ -46,7 +46,7 @@ const DashboardCategoriesEdit = () => {
     try {
       const payload = { name, order: parseInt(order) };
       await axios.put(Api.PUT(id).UPDATECategories, payload);
-      alert('Category updated successfully!');
+      alert('تم تعديل الفئة بنجاح');
       navigate('/dashboard/home');
     } catch (err) {
       console.error('Error updating category:', err);
@@ -54,34 +54,34 @@ const DashboardCategoriesEdit = () => {
     }
   };
 
-  if (loading) return <p className="text-center mt-10">Loading...</p>;
+  if (loading) return <p className="text-center mt-10">.......</p>;
   if (error) return <p className="text-center mt-10 text-red-500">{error}. Redirecting...</p>;
 
   return (
     <div className="md:flex gap-14">
       <SideBar />
       <div>
-        <h1 className="text-center text-3xl">Welcome to Dashboard</h1>
+        <h1 className="text-center text-3xl">اهلا بك في لوحة التكحم</h1>
         <div className="text-center">
-          <h1 className="text-xl mb-4">Edit Category</h1>
+          <h1 className="text-xl mb-4">هنا يمكنك تعديل الفئة</h1>
           <form onSubmit={handleUpdateCategory}>
             <div className="flex flex-col mb-7 mr-4 px-4">
-              <label className="font-extrabold text-xl">Category Name</label>
+              <label className="font-extrabold text-xl">اسم الفئة</label>
               <textarea
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="Category Name"
+                placeholder="اسم الفئة"
                 className="mr-3 w-full pl-3 border border-[#E9EAEC] rounded-lg dm"
               />
             </div>
             <div className="flex flex-col mb-7 mr-4 px-4">
-              <label className="font-extrabold text-xl">Category Order</label>
+              <label className="font-extrabold text-xl">ترتيب الفئة</label>
               <input
                 type="number"
                 step="1"
                 value={order}
                 onChange={(e) => setOrder(e.target.value)}
-                placeholder="Category Order"
+                placeholder="ترتيب الفئة"
                 className="mr-3 w-full pl-3 border border-[#E9EAEC] rounded-lg dm"
               />
             </div>
@@ -89,7 +89,7 @@ const DashboardCategoriesEdit = () => {
               type="submit"
               className="bg-[#009788] text-[#101B2D] border-0 px-6 py-1 font-semibold text-base rounded-md cursor-pointer transition-colors duration-300 ease-in-out hover:bg-[#00cc66] hover:text-white"
             >
-              Update Category
+              عدل الفئة
             </button>
           </form>
         </div>

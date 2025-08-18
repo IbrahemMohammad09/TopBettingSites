@@ -14,7 +14,7 @@ const DashboardSitesAdd = () => {
   const [text, setText] = useState("");
   const [bonus, setBonus] = useState("");
   const [link, setLink] = useState("");
-  const [logoUrl, setLogoUrl] = useState(""); // رابط الصورة بعد الرفع
+  const [logoUrl, setLogoUrl] = useState("");
   const [rate, setRate] = useState("");
   const [order, setOrder] = useState("");
   const [error, setError] = useState(null);
@@ -105,13 +105,13 @@ const DashboardSitesAdd = () => {
     <div className='md:flex gap-14 mb-8'>
       <SideBar />
       <div>
-        <h1 className='items-center justify-center text-center text-3xl'>Welcome to Dashboard</h1>
+        <h1 className='items-center justify-center text-center text-3xl'>اهلا بك في لوحة التحكم</h1>
         <div className='items-center justify-center text-center'>
-          <h1 className='text-xl mb-4'>Here you add Sites</h1>
+          <h1 className='text-xl mb-4'>هنا تقوم باضافة موقع</h1>
           <form className='mb-8' onSubmit={handleSubmit}>
             {/* Logo Upload */}
             <div className="flex flex-col mb-1 mr-4 px-4">
-              <label className="font-extrabold text-xl">Site Logo</label>
+              <label className="font-extrabold text-xl">صورة الموقع</label>
               <label className="relative cursor-pointer border-dashed border-2 border-gray-300 p-4 flex items-center justify-center">
                 {logoUrl ? (
                   <>
@@ -130,7 +130,7 @@ const DashboardSitesAdd = () => {
                     </button>
                   </>
                 ) : (
-                  <span className="text-gray-500">Upload</span>
+                  <span className="text-gray-500">ارفع الصورة</span>
                 )}
                 <input
                   type="file"
@@ -144,40 +144,40 @@ const DashboardSitesAdd = () => {
             
             {/* Name */}
             <div className="flex flex-col mb-1 mr-4 px-4 ">
-              <label className="font-extrabold text-xl">Site Name</label>
+              <label className="font-extrabold text-xl">اسم الموقع</label>
               <textarea
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="Site Name"
+                placeholder="اسم الموقع"
                 className="mr-3 w-full pl-3 border border-[#E9EAEC] rounded-lg"
               />
             </div>
 
             {/* Text */}
             <div className="flex flex-col mb-1 mr-4 px-4 ">
-              <label className="font-extrabold text-xl">Site Description</label>
+              <label className="font-extrabold text-xl">وصف عن الموقع</label>
               <textarea
                 value={text}
                 onChange={(e) => setText(e.target.value)}
-                placeholder="Site Description"
+                placeholder="وصف عن الموقع"
                 className="mr-3 w-full pl-3 border border-[#E9EAEC] rounded-lg"
               />
             </div>
 
             {/* Link */}
             <div className="flex flex-col mb-1 mr-4 px-4 ">
-              <label className="font-extrabold text-xl">Site Link</label>
+              <label className="font-extrabold text-xl">رابط الموقع</label>
               <textarea
                 value={link}
                 onChange={(e) => setLink(e.target.value)}
-                placeholder="Site Link"
+                placeholder="رابط الموقع"
                 className="mr-3 w-full pl-3 border border-[#E9EAEC] rounded-lg"
               />
             </div>
 
             {/* Rate */}
             <div className="flex flex-col mb-1 mr-4 px-4 ">
-              <label className="font-extrabold text-xl">Site Rate</label>
+              <label className="font-extrabold text-xl">تقييم الموقع</label>
               <input
                 type="number"
                 min="1"
@@ -185,32 +185,32 @@ const DashboardSitesAdd = () => {
                 step="0.1"
                 value={rate}
                 onChange={(e) => setRate(e.target.value)}
-                placeholder="Site Rate"
+                placeholder="تقييم الموقع"
                 className="mr-3 w-full pl-3 border border-[#E9EAEC] rounded-lg"
               />
             </div>
 
             {/* Order */}
             <div className="flex flex-col mb-1 mr-4 px-4 ">
-              <label className="font-extrabold text-xl">Site Order</label>
+              <label className="font-extrabold text-xl">ترتيب عرض الموقع</label>
               <input
                 type="number"
                 step="1"
                 value={order}
                 onChange={(e) => setOrder(e.target.value)}
-                placeholder="Site Order"
+                placeholder="ترتيب عرض الموقع"
                 className="mr-3 w-full pl-3 border border-[#E9EAEC] rounded-lg"
               />
             </div>
 
             {/* Bonus */}
             <div className="flex flex-col mb-1 mr-4 px-4 ">
-              <label className="font-extrabold text-xl">Site Bonus</label>
+              <label className="font-extrabold text-xl">الخصم على الموقع</label>
               <input
                 type="number"
                 value={bonus}
                 onChange={(e) => setBonus(e.target.value)}
-                placeholder="Site Bonus"
+                placeholder="الخصم على الموقع"
                 className="mr-3 w-full pl-3 border border-[#E9EAEC] rounded-lg"
               />
             </div>
@@ -219,7 +219,7 @@ const DashboardSitesAdd = () => {
 
             {/* Categories */}
             <div className="flex flex-col  mb-1 mr-4 px-4 ">
-              <label className="font-extrabold mb-2 text-xl">Site Categories</label>
+              <label className="font-extrabold mb-2 text-xl">فئة الموقع</label>
               <div className='flex flex-row flex-wrap gap-2'>
                 {categories.map((item, index) => (
                   <button
@@ -240,7 +240,7 @@ const DashboardSitesAdd = () => {
               type="submit"
               className='mt-4 bg-[#009788] text-[#101B2D] border-0 px-6 py-1 font-semibold text-base rounded-md cursor-pointer transition-colors duration-300 ease-in-out hover:bg-[#00cc66] hover:text-white'
             >
-              Save Site
+              حفظ الموقع
             </button>
           </form>
 

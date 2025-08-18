@@ -51,7 +51,6 @@ const Login = () => {
     
             // التوجيه للصفحة الرئيسية
             navigate('/dashboard/home');
-            console.log("Login successful");
     
         } catch (error) {
             console.error("Login failed");
@@ -68,11 +67,11 @@ const Login = () => {
   return (
     <div className="flex flex-col items-center justify-center mt-20 ">
         <div className="md:pt-12 flex flex-col mb-7 container-form items-center border-4 border-[#00FF88] rounded-md ">
-            <p className="text-center font-normal text-5xl text-[#241E1E] m-12 ">Welcome</p>
+            <p className="text-center font-normal text-3xl text-[#241E1E] m-4 ">اهلا بك في لوحة التحكم</p>
             <form className="max-w-[200px] w-full">
                 <div className="flex flex-col mb-10 w-full">
                     <label className="font-semibold  text-2xl inter text-black">
-                        User Name
+                        اسم المستخدم
                     </label>
                     <div className="relative">
                         <span className="absolute left-0 top-1/2 transform -translate-y-1/2 p-2">
@@ -88,7 +87,7 @@ const Login = () => {
                     </div>
 
                     <div className="flex flex-col">
-                        <label className="font-semibold text-2xl inter text-black">Password</label>
+                        <label className="font-semibold text-2xl inter text-black">كلمة السر</label>
                         <div className="relative flex items-center">
                             <span className="absolute left-0 top-1/2 transform -translate-y-1/2 p-2">
                                 <FaLock /> 
@@ -113,10 +112,9 @@ const Login = () => {
                         className="bg-[#00FF88] text-[#101B2D] border-0 px-12 py-1 font-semibold text-base rounded-md cursor-pointer my-5 mx-auto block transition-colors duration-300 ease-in-out hover:bg-[#00cc66] hover:text-white" 
                         onClick={handleSubmit}
                     >{
-                        loading?("Login..."):("login")
+                        loading?("......."):("سجل دخول")
                     }
                     </button>
-
                 </div>
             </form>
         </div>
