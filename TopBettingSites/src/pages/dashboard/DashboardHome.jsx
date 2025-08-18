@@ -50,6 +50,7 @@ const DashboardHome = () => {
                 {Categories.map((item,index) => (
                     <div key={index} className="flex flex-row mt-8 bg-gray-700 m-4 p-4 items-center justify-between">
                         <h1 className="text-white font-bold">{item.name}</h1>
+                        <h1 className="text-white font-bold">{"Order : "+item.order}</h1>
                         <div className="flex space-x-4">
                             <button onClick={()=>{deleteCat(item.id , item.name)}}><MdDeleteForever className="cursor-pointer text-red-500 hover:text-red-700" /></button>
                             <Link to={`/dashboard/categories/edit/${item.id}`}><MdModeEditOutline className="cursor-pointer text-yellow-400 hover:text-yellow-600" /></Link>
