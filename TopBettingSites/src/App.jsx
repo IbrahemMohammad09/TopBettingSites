@@ -13,7 +13,7 @@ const DashboardArticles = lazy(() => import("./pages/dashboard/DashboardArticles
 const DashboardCategoriesAdd = lazy(() => import("./pages/dashboard/DashboardCategoriesAdd"))
 const DashboardCategoriesEdit = lazy(() => import("./pages/dashboard/DashboardCategoriesEdit"))
 const DashboardSitesAdd = lazy(() => import("./pages/dashboard/DashboardSitesAdd"))
-const DashboardSitesAddPhoto = lazy(() => import("./pages/dashboard/DashboardSitesAddPhoto"))
+
 
 
 function App() {
@@ -31,7 +31,7 @@ function App() {
             "/dashboard/categories/add" : DashboardCategoriesAdd,
             "/dashboard/categories/edit/:id" : DashboardCategoriesEdit,
             "/dashboard/sites/add" : DashboardSitesAdd,
-            "/dashboard/sites/add/photo" : DashboardSitesAddPhoto,
+
 
             }).map(([path, Component]) => (
               <Route key={path} path={path} element={<ProtectedRoute><Component /></ProtectedRoute>} />
