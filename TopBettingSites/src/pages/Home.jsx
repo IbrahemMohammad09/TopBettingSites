@@ -1,140 +1,90 @@
 import React, { useState, useEffect } from 'react';
 import image from '../../public/logo.PNG';
 import Card from '../components/Card';
-import GoogleAd from '../components/GoogleAd';
+// import GoogleAd from '../components/GoogleAd';
 import ArticleCard from '../components/ArticleCard';
+import { Api } from '../constant/api';
+import axios from 'axios';
 
 
 const Home = () => {
-  const Categories = [
-    { id: 1, name: "Sites" },
-    { id: 2, name: "Bouns" },
-    { id: 3, name: "PayPal" },
-    { id: 4, name: "PaySafe" },
-    { id: 5, name: "New sites" },
-  ];
+  const [Categories, setCategories] = useState([]);
+  const [sites , setSites] = useState([])
+  const [article , setArticle] = useState([])
+  
 
-  const sites = [
-    {
-      id: 1,
-      img: image,
-      categorie: "Sites",
-      title: "Sites",
-      desc: "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ",
-      bouns: "50",
-      rate: 3,
-      url: "https://www.sparkengdev.com"
-    },
-    {
-      id: 2,
-      img: image,
-      categorie: "Bouns",
-      title: "Bouns",
-      desc: "lorem",
-      bouns: "50",
-      rate: 4.5,
-      url: "https://www.sparkengdev.com"
-    },
-    {
-      id: 3,
-      img: image,
-      categorie: "PayPal",
-      title: "PayPal",
-      desc: "lorem",
-      bouns: "50",
-      rate: 4.5,
-      url: "https://www.sparkengdev.com"
-    },
-    {
-        id: 4,
-        img: image,
-        categorie: "PaySafe",
-        title: "PaySafe",
-        desc: "lorem",
-        bouns: "50",
-        rate: 4.5,
-        url: "https://www.sparkengdev.com"
-      },
-      {
-        id: 5,
-        img: image,
-        categorie: "PaySafe",
-        title: "PaySafe",
-        desc: "lorem",
-        bouns: "50",
-        rate: 4.5,
-        url: "https://www.sparkengdev.com"
-      },
-      {
-        id: 6,
-        img: image,
-        categorie: "PaySafe",
-        title: "PaySafe",
-        desc: "lorem",
-        bouns: "50",
-        rate: 4.5,
-        url: "https://www.sparkengdev.com"
-      },
-      {
-        id: 7,
-        img: image,
-        categorie: "PaySafe",
-        title: "PaySafe",
-        desc: "lorem",
-        bouns: "50",
-        rate: 4.5,
-        url: "https://www.sparkengdev.com"
-      },
-      {
-        id: 8,
-        img: image,
-        categorie: "PaySafe",
-        title: "PaySafe",
-        desc: "lorem",
-        bouns: "50",
-        rate: 4.5,
-        url: "https://www.sparkengdev.com"
-      },
-  ];
+  const [activeIndex, setActiveIndex] = useState(null);
 
-  const article = [
-    {
-        id : 1,
-        img : image,
-        title : "bet bouns ",
-        text : "Choosing between bet365 and bwin depends largely on what you value most in a betting platform.bet365 is renowned for its extensive live betting options and competitive odds, providing an immersive experiencefor sports enthusiasts. On the other hand, bwin offers a wide range of markets and a user-friendly interfacethat caters well to beginners. Both platforms provide generous bonuses and solid mobile apps. Ultimately, your choice should align with your betting preferences and priorities.Choosing between bet365 and bwin depends largely on what you value most in a betting platform.bet365 is renowned for its extensive live betting options and competitive odds, providing an immersive experiencefor sports enthusiasts. On the other hand, bwin offers a wide range of markets and a user-friendly interfacethat caters well to beginners. Both platforms provide generous bonuses and solid mobile apps. Ultimately, your choice should align with your betting preferences and priorities.Choosing between bet365 and bwin depends largely on what you value most in a betting platform.bet365 is renowned for its extensive live betting options and competitive odds, providing an immersive experiencefor sports enthusiasts. On the other hand, bwin offers a wide range of markets and a user-friendly interfacethat caters well to beginners. Both platforms provide generous bonuses and solid mobile apps. Ultimately, your choice should align with your betting preferences and priorities.Choosing between bet365 and bwin depends largely on what you value most in a betting platform.bet365 is renowned for its extensive live betting options and competitive odds, providing an immersive experiencefor sports enthusiasts. On the other hand, bwin offers a wide range of markets and a user-friendly interfacethat caters well to beginners. Both platforms provide generous bonuses and solid mobile apps. Ultimately, your choice should align with your betting preferences and priorities.Choosing between bet365 and bwin depends largely on what you value most in a betting platform.bet365 is renowned for its extensive live betting options and competitive odds, providing an immersive experiencefor sports enthusiasts. On the other hand, bwin offers a wide range of markets and a user-friendly interfacethat caters well to beginners. Both platforms provide generous bonuses and solid mobile apps. Ultimately, your choice should align with your betting preferences and priorities.Choosing between bet365 and bwin depends largely on what you value most in a betting platform.bet365 is renowned for its extensive live betting options and competitive odds, providing an immersive experiencefor sports enthusiasts. On the other hand, bwin offers a wide range of markets and a user-friendly interfacethat caters well to beginners. Both platforms provide generous bonuses and solid mobile apps. Ultimately, your choice should align with your betting preferences and priorities.Choosing between bet365 and bwin depends largely on what you value most in a betting platform.bet365 is renowned for its extensive live betting options and competitive odds, providing an immersive experiencefor sports enthusiasts. On the other hand, bwin offers a wide range of markets and a user-friendly interfacethat caters well to beginners. Both platforms provide generous bonuses and solid mobile apps. Ultimately, your choice should align with your betting preferences and priorities.Choosing between bet365 and bwin depends largely on what you value most in a betting platform.bet365 is renowned for its extensive live betting options and competitive odds, providing an immersive experiencefor sports enthusiasts. On the other hand, bwin offers a wide range of markets and a user-friendly interfacethat caters well to beginners. Both platforms provide generous bonuses and solid mobile apps. Ultimately, your choice should align with your betting preferences and priorities."
-    },
-    {
-        id : 2,
-        img : image,
-        title : "bet bouns ",
-        text : "Choosing between bet365 and bwin depends largely on what you value most in a betting platform.bet365 is renowned for its extensive live betting options and competitive odds, providing an immersive experiencefor sports enthusiasts. On the other hand, bwin offers a wide range of markets and a user-friendly interfacethat caters well to beginners. Both platforms provide generous bonuses and solid mobile apps. Ultimately, your choice should align with your betting preferences and priorities.Choosing between bet365 and bwin depends largely on what you value most in a betting platform.bet365 is renowned for its extensive live betting options and competitive odds, providing an immersive experiencefor sports enthusiasts. On the other hand, bwin offers a wide range of markets and a user-friendly interfacethat caters well to beginners. Both platforms provide generous bonuses and solid mobile apps. Ultimately, your choice should align with your betting preferences and priorities.Choosing between bet365 and bwin depends largely on what you value most in a betting platform.bet365 is renowned for its extensive live betting options and competitive odds, providing an immersive experiencefor sports enthusiasts. On the other hand, bwin offers a wide range of markets and a user-friendly interfacethat caters well to beginners. Both platforms provide generous bonuses and solid mobile apps. Ultimately, your choice should align with your betting preferences and priorities.Choosing between bet365 and bwin depends largely on what you value most in a betting platform.bet365 is renowned for its extensive live betting options and competitive odds, providing an immersive experiencefor sports enthusiasts. On the other hand, bwin offers a wide range of markets and a user-friendly interfacethat caters well to beginners. Both platforms provide generous bonuses and solid mobile apps. Ultimately, your choice should align with your betting preferences and priorities.Choosing between bet365 and bwin depends largely on what you value most in a betting platform.bet365 is renowned for its extensive live betting options and competitive odds, providing an immersive experiencefor sports enthusiasts. On the other hand, bwin offers a wide range of markets and a user-friendly interfacethat caters well to beginners. Both platforms provide generous bonuses and solid mobile apps. Ultimately, your choice should align with your betting preferences and priorities.Choosing between bet365 and bwin depends largely on what you value most in a betting platform.bet365 is renowned for its extensive live betting options and competitive odds, providing an immersive experiencefor sports enthusiasts. On the other hand, bwin offers a wide range of markets and a user-friendly interfacethat caters well to beginners. Both platforms provide generous bonuses and solid mobile apps. Ultimately, your choice should align with your betting preferences and priorities.Choosing between bet365 and bwin depends largely on what you value most in a betting platform.bet365 is renowned for its extensive live betting options and competitive odds, providing an immersive experiencefor sports enthusiasts. On the other hand, bwin offers a wide range of markets and a user-friendly interfacethat caters well to beginners. Both platforms provide generous bonuses and solid mobile apps. Ultimately, your choice should align with your betting preferences and priorities."
-    },
-    {
-        id : 3,
-        img : image,
-        title : "bet bouns ",
-        text : "Choosing between bet365 and bwin depends largely on what you value most in a betting platform.bet365 is renowned for its extensive live betting options and competitive odds, providing an immersive experiencefor sports enthusiasts. On the other hand, bwin offers a wide range of markets and a user-friendly interfacethat caters well to beginners. Both platforms provide generous bonuses and solid mobile apps. Ultimately, your choice should align with your betting preferences and priorities."
-    },
-    {
-        id : 4,
-        img : image,
-        title : "bet bouns ",
-        text : "Choosing between bet365 and bwin depends largely on what you value most in a betting platform.bet365 is renowned for its extensive live betting options and competitive odds, providing an immersive experiencefor sports enthusiasts. On the other hand, bwin offers a wide range of markets and a user-friendly interfacethat caters well to beginners. Both platforms provide generous bonuses and solid mobile apps. Ultimately, your choice should align with your betting preferences and priorities."
-    },
-  ]
-
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [activeCate, setActiveCate] = useState("All");
-  const [activeCards, setActiveCards] = useState([]);
   const [showArticle, setShowArticle] = useState([]);
   const [isHiddenArt, setIsHiddenArt] = useState(true);
+  const [showAll, setShowAll] = useState(true);
+  const [displayedSites ,setDisplayedSites ] = useState([])
 
   const [activePopup, setActivePopup] = useState(null);
   const [activePopupContatc, setActivePopupContatc] = useState(false);
   const [activePopupTerms, setActivePopupTerms] = useState(false);
   const [activePopupPrivacy, setActivePopupPrivacy] = useState(false);
   const [activePopupGambling, setActivePopupGambling] = useState(false);
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      if (!activeIndex) return; 
+      
+      const id = activeIndex;
+      try {
+        const response = await axios.get(Api.GET(id).SitesByCategory);
+        const arr = Array.isArray(response.data) ? response.data : response.data?.data || [];
+  
+        const sorted = arr.sort((a, b) => (a.order || 0) - (b.order || 0));
+
+        setSites(sorted);
+      } catch (error) {
+        console.error("API error:", error);
+      }
+    };
+  
+    fetchData();
+  }, [activeIndex]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(Api.GET().Articles);
+        const arr = Array.isArray(response.data) ? response.data : response.data?.data || [];
+        const sorted = arr.sort((a, b) => (a.order || 0) - (b.order || 0));
+        setArticle(sorted); // تحديث state
+      } catch (error) {
+        console.error(error);
+      }
+    };
+  
+    fetchData();
+  }, []);
+  
+  
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(Api.GET().CATEGORIES);
+  
+        const arr = Array.isArray(response.data) ? response.data : response.data?.data || [];
+  
+        const sorted = arr.sort((a, b) => (a.order || 0) - (b.order || 0));
+        setCategories(sorted);
+      } catch (error) {
+        console.error("API error:", error);
+      }
+    };
+  
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    if (Categories.length > 0) {
+      setActiveIndex(Categories[0].id); // أو أي قيمة تريدها
+    }
+  }, [Categories]);
 
 
   // بدل الدالة showArt السابقة
@@ -150,30 +100,44 @@ const toggleArticles = () => {
   }
 };
 
+const toggleSites = () => {
+  if (showAll){
+    setDisplayedSites(sites)
+    setShowAll(!showAll)
+  }else{
+    const setDis = showAll ? sites : sites.slice(0, 10);
+    setDisplayedSites(setDis);
+    setShowAll(!showAll);
+  }
+
+}
+
+useEffect(() => {
+  setDisplayedSites(sites.slice(0, 10));
+}, [sites]);
+
   useEffect(() => {
     setShowArticle(article.slice(0, 3));
-  }, []);
+  }, [article]);
 
   useEffect(() => {
-    const firstCategoryName = Categories[0].name;
-    const filtered = sites.filter(item => item.categorie === firstCategoryName);
-    setActiveCards(filtered);
-  }, []);
+    if (Categories.length > 0) {
+      const firstCategoryName = Categories[0].name;
+      const filtered = sites.filter(item => item.category.name === firstCategoryName);
+    }
+  }, [Categories , sites]);
+  
 
 
-  const handleFilter = (category, index) => {
-    setActiveIndex(index);
-    setActiveCate(category);
+  const handleFilter = (category,id, index) => {
+    setActiveIndex(id);
+    setShowAll(true)
 
     const filtered = sites.filter(item => item.categorie === category);
-    setActiveCards(filtered);
+    // setActiveCards(filtered);
 
   };
 
-  const showArt =()=> {
-    setIsHiddenArt(false);
-    setShowArticle(article)
-  }
 
   return (
     <div className="flex flex-col items-center justify-center">
@@ -188,12 +152,12 @@ const toggleArticles = () => {
         <div className="flex items-center justify-start shadow-bottom w-full overflow-x-auto flex-nowrap sm:justify-center scrollbar-hide">
             {Categories.map((item, index) => (
                 <button
-                key={item.id}
-                onClick={() => handleFilter(item.name, index)}
+                key={item.order}
+                onClick={() => handleFilter(item.name,item.id ,index)}
                 className={`
                     cursor-pointer px-[2px] py-[12px] font-semibold text-base border-0 bg-transparent
                     transition-all duration-300 ease-linear mx-[10px] whitespace-nowrap border-b-2
-                    ${activeIndex === index
+                    ${activeIndex === item.id
                     ? "text-[#00FF88] border-b-[#00FF88]"
                     : "text-[#000000] border-b-transparent hover:text-[#00FF88]"
                     }
@@ -206,19 +170,35 @@ const toggleArticles = () => {
 
 
       {/* عرض الكروت */}
-      <div className='flex p-4 gap-4 flex-wrap justify-center'>
-        {activeCards.map((item) => (
-          <Card
-            key={item.id}
-            img={item.img}
-            title={item.title}
-            desc={item.desc}
-            bouns={item.bouns}
-            url={item.url}
-            rate={item.rate}
-          />
+      <div className='flex flex-row p-4 gap-4 flex-wrap justify-center '>
+        {displayedSites.map((item) => (
+            <Card
+              key={item.id}
+              img={item.logo_url}
+              title={item.name}
+              desc={item.text}
+              bouns={item.bouns}
+              url={item.link}
+              rate={item.rate}
+            />
         ))}
       </div>
+      {sites.length > 10 && (
+          <div className="
+          max-w-[800px] 
+          mx-auto  
+          rounded-lg 
+          leading-relaxed
+          "
+          >
+            <button
+              onClick={toggleSites}
+              className="bg-[#00FF88] text-[#101B2D] border-0 px-6 py-1 font-semibold text-base rounded-md cursor-pointer my-5 mx-auto block transition-colors duration-300 ease-in-out hover:bg-[#00cc66] hover:text-white"
+            >
+              {!showAll ? "Show Less" : "Show More"}
+            </button>
+          </div>
+        )}
 
       <div className='flex items-center justify-center shadow-bottom mx-auto w-full px-4'>
         <h1 className="
@@ -254,17 +234,19 @@ const toggleArticles = () => {
         {showArticle.map((item) => (
         <ArticleCard 
           key={item.id} 
-          title={item.title}
-          image={item.img}
+          title={item.header}
+          image={item.image_url}
           content={item.text}
           />
         ))}
-        <button
-          onClick={toggleArticles}
-          className="bg-[#00FF88] text-[#101B2D] border-0 px-6 py-1 font-semibold text-base rounded-md cursor-pointer my-5 mx-auto block transition-colors duration-300 ease-in-out hover:bg-[#00cc66] hover:text-white"
-        >
-          {isHiddenArt ? "Show More Articles" : "Show Less Articles"}
-        </button>
+        {article.length > 3 && (
+                  <button
+                  onClick={toggleArticles}
+                  className="bg-[#00FF88] text-[#101B2D] border-0 px-6 py-1 font-semibold text-base rounded-md cursor-pointer my-5 mx-auto block transition-colors duration-300 ease-in-out hover:bg-[#00cc66] hover:text-white"
+                >
+                  {isHiddenArt ? "Show More Articles" : "Show Less Articles"}
+                </button>
+        )}
       </div>
 
 

@@ -1,26 +1,27 @@
 const URL = "https://www.betbonus24.com/";
 
 const Api = {
-    GET: {
-        Categories: `${URL}api/requests/`,
-        Sites: `${URL}api/pictures/`,
-        SitesByCategory: `${URL}api/rates/`,
-        Articles: URL+'api/rates/all',
-    },
+    GET: (id) => ( {
+        CATEGORIES: `${URL}api/users/categories/`,
+        Sites: `${URL}api/users/sites/`,
+        SitesByCategory: `${URL}api/users/sites/by-category/${id}/`,
+        Articles: URL+'api/admin/articles/',
+    }),
     POST: {
-        CREATEORDER: `${URL}api/requests/create/`,
-        CREATEPICTURE: `${URL}api/pictures/create/`,
         LOGIN: `${URL}api/admin/login/`,
-        CREATERATE: URL+'api/rates/create/',
+        CREATECategories: `${URL}api/requests/create/`,
+        CREATEArticles: `${URL}api/admin/articles/`,
+        CREATESites: URL+'api/admin/sites/',
     },
     DELETE: (id) => ({
-        DELETEORDER: `${URL}api/requests/${id}/delete/`,
-        DELETEPICTURE: `${URL}api/pictures/${id}/delete/`,
-        DELETERATE: `${URL}api/rates/${id}/delete/`
+        DELETECategories: `${URL}api/admin/categories/${id}/`,
+        DELETESites: `${URL}api/admin/sites/${id}/`,
+        DELETEArticles: `${URL}aapi/admin/articles/${id}/`
     }),
     PUT: (id) => ({
-        UPDATEORDER: `${URL}api/requests/${id}/update/`,
-        UPDATERATE: `${URL}api/rates/${id}/update/`
+        UPDATECategories: `${URL}api/admin/categories/${id}/`,
+        UPDATEArticles: `${URL}api/admin/articles/${id}/`,
+        UPDATESites : `${URL}api/admin/sites/${id}/`
     })
 };
 

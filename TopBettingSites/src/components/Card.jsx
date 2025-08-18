@@ -11,7 +11,7 @@ const Card = ({ img, title, desc, bouns, url,rate }) => {
             <div className='flex flex-row p-4 items-center justify-center w-full'>
                 <img src={img} alt={title} className="w-20 h-20 object-contain " />
                 <div className='flex flex-col flex-1 items-center'>
-                    <h1 className="text-lg text-black font-bold">{title}</h1>
+                    <h1 className="text- text-black font-bold">{title}</h1>
                     <p className="font-semibold text-[#ffd700] animate-pulse-scale">
                         Bonus: {bouns} %
                     </p>
