@@ -1,41 +1,19 @@
-import React, { useState } from 'react';
-import SideBar from './SideBar';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import { Api } from '../../constant/api'; // تأكد من أن Api يحتوي على الرابط الصحيح
+import React from 'react'
+import SideBar from './SideBar'
+import { useState } from 'react';
 
-const DashboardCategoriesAdd = () => {
-  const [name, setName] = useState('');
-  const [order, setOrder] = useState('');
-  const navigate = useNavigate(); // للتوجيه بعد الإضافة
-
-  const handleAddCategory = async (e) => {
-    e.preventDefault(); // منع إعادة تحميل الصفحة
-
-    try {
-      const payload = {
-        name: name,
-        order: parseInt(order),
-      };
-
-      await axios.post(Api.POST.CREATECategories, payload);
-
-      alert('Category added successfully!');
-      navigate('/dashboard/home'); 
-    } catch (error) {
-      console.error('Error adding category:', error);
-      alert('Failed to add category.');
-    }
-  };
+const DashboardCategoriesEdit = () => {
+    const [name, setName] = useState('');
+    const [order, setOrder] = useState('');
 
   return (
     <div className="md:flex gap-14">
-      <SideBar />
-      <div>
+        <SideBar />
+        <div>
         <h1 className="text-center text-3xl">Welcome to Dashboard</h1>
         <div className="text-center">
           <h1 className="text-xl mb-4">Here you add Categories</h1>
-          <form onSubmit={handleAddCategory}>
+          <form >
             <div className="flex flex-col mb-7 mr-4 px-4">
               <label className="font-extrabold text-xl">Category Name</label>
               <textarea
@@ -65,8 +43,9 @@ const DashboardCategoriesAdd = () => {
           </form>
         </div>
       </div>
-    </div>
-  );
-};
 
-export default DashboardCategoriesAdd;
+    </div>
+  )
+}
+
+export default DashboardCategoriesEdit

@@ -52,7 +52,7 @@ const DashboardHome = () => {
                         <h1 className="text-white font-bold">{item.name}</h1>
                         <div className="flex space-x-4">
                             <button onClick={()=>{deleteCat(item.id , item.name)}}><MdDeleteForever className="cursor-pointer text-red-500 hover:text-red-700" /></button>
-                            <button><MdModeEditOutline className="cursor-pointer text-yellow-400 hover:text-yellow-600" /></button>
+                            <Link to={`/dashboard/categories/edit/${item.id}`}><MdModeEditOutline className="cursor-pointer text-yellow-400 hover:text-yellow-600" /></Link>
                         </div>
                     </div>
                 ))}

@@ -11,8 +11,10 @@ const DashoardHome = lazy(() => import("./pages/dashboard/DashboardHome"))
 const DashboardSites = lazy(() => import("./pages/dashboard/DashboardSites"))
 const DashboardArticles = lazy(() => import("./pages/dashboard/DashboardArticles"))
 const DashboardCategoriesAdd = lazy(() => import("./pages/dashboard/DashboardCategoriesAdd"))
+const DashboardCategoriesEdit = lazy(() => import("./pages/dashboard/DashboardCategoriesEdit"))
 const DashboardSitesAdd = lazy(() => import("./pages/dashboard/DashboardSitesAdd"))
 const DashboardSitesAddPhoto = lazy(() => import("./pages/dashboard/DashboardSitesAddPhoto"))
+
 
 function App() {
   return (
@@ -27,6 +29,7 @@ function App() {
             "/dashboard/sites" : DashboardSites,
             "/dashboard/articles" : DashboardArticles,
             "/dashboard/categories/add" : DashboardCategoriesAdd,
+            "/dashboard/categories/edit/:id" : DashboardCategoriesEdit,
             "/dashboard/sites/add" : DashboardSitesAdd,
             "/dashboard/sites/add/photo" : DashboardSitesAddPhoto,
 

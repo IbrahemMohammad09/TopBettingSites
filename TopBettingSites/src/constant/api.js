@@ -9,7 +9,7 @@ const Api = {
     }),
     POST: {
         LOGIN: `${URL}api/admin/login/`,
-        CREATECategories: `${URL}api/requests/create/`,
+        CREATECategories: `${URL}api/admin/categories/`,
         CREATEArticles: `${URL}api/admin/articles/`,
         CREATESites: URL+'api/admin/sites/',
     },
