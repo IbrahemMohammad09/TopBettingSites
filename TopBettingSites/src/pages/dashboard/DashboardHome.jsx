@@ -39,7 +39,7 @@ const DashboardHome = () => {
     <div className=' md:flex  gap-14 '>
         <SideBar />
         <div className=''>
-            <h1 className='items-center justify-center text-center text-3xl'>اهلا بك في لوحة التكحم</h1>
+            <h1 className='items-center justify-center text-center text-3xl'>اهلا بك في لوحة التحكم</h1>
             <div className='items-center justify-center text-center'>
                 <h1 className='text-xl mb-4'>هنا بأمكانك اضافة ,تعديل وحذف الفئات</h1>
                 <Link to='/dashboard/categories/add' className='bg-[#009788] text-[#101B2D] border-0 px-6 py-1 font-semibold text-base rounded-md cursor-pointer transition-colors duration-300 ease-in-out hover:bg-[#00cc66] hover:text-white'
