@@ -177,7 +177,7 @@ useEffect(() => {
               img={item.logo_url}
               title={item.name}
               desc={item.text}
-              bouns={item.bouns}
+              bouns={item.bonus}
               url={item.link}
               rate={item.rate}
             />
