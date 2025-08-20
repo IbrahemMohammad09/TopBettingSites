@@ -89,8 +89,17 @@ const DashboardSites = () => {
                                 </Link>
                             )}
                         </div>
-                        <p className='p-4 pt-0 text-lg text-black w-full'>{"اسم الفئة : "+item.category.name}</p>
-                        <p className='p-4 pt-0 text-lg text-black w-full'>{"ترتيب العرض : "+item.order}</p>
+                        {/* <p className='p-4 pt-0 text-lg text-black w-full'>{"اسم الفئة : "+item.category.name}</p> */}
+                        <div className="p-4 pt-0 text-lg text-black w-full">
+                            <p>الفئات :</p>
+                            <ul className="list-disc list-inside">
+                                {item.categories.map(cat => (
+                                <li key={cat.id}>{cat.name} (ترتيب: {cat.order})</li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        {/* <p className='p-4 pt-0 text-lg text-black w-full'>{"ترتيب العرض : "+item.order}</p> */}
                         <p className='p-4 pt-0  w-full'>{item.link}</p>
                         <p className='p-4 pt-0  w-full'>{item.text}</p>
                         

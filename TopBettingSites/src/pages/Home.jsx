@@ -33,13 +33,21 @@ const Home = () => {
       const id = activeIndex;
       try {
         const response = await axios.get(Api.GET(id).SitesByCategory);
-        const arr = Array.isArray(response.data) ? response.data : response.data?.data || [];
-  
-        const sorted = arr.sort((a, b) => (a.order || 0) - (b.order || 0));
 
-        setSites(sorted);
+        if (response.data?.message) {
+          // 🟢 إذا السيرفر رجّع رسالة بدل البيانات
+          setSites([]);
+        } else {
+          const arr = Array.isArray(response.data) ? response.data : response.data?.data || [];
+          const sorted = arr.sort((a, b) => (a.order || 0) - (b.order || 0));
+          setSites(sorted.length > 0 ? sorted : []);
+        }
+        
+
+        
       } catch (error) {
         console.error("API error:", error);
+        setSites([]);
       }
     };
   
@@ -123,7 +131,6 @@ useEffect(() => {
   useEffect(() => {
     if (Categories.length > 0) {
       const firstCategoryName = Categories[0].name;
-      const filtered = sites.filter(item => item.category.name === firstCategoryName);
     }
   }, [Categories , sites]);
   
@@ -134,7 +141,7 @@ useEffect(() => {
     setShowAll(true)
 
     const filtered = sites.filter(item => item.categorie === category);
-    // setActiveCards(filtered);
+ ;
 
   };
 

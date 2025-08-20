@@ -6,7 +6,7 @@ import axios from 'axios';
 
 const DashboardSitesAdd = () => {
   const [categories, setCategories] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategories, setSelectedCategories] = useState([]); // 🟢 أكثر من فئة
   const navigate = useNavigate();
 
   // site states
@@ -66,6 +66,12 @@ const DashboardSitesAdd = () => {
       alert("فشل رفع الصورة");
     }
   };
+   // اختيار / إزالة الفئة
+   const toggleCategory = (id) => {
+    setSelectedCategories((prev) =>
+      prev.includes(id) ? prev.filter((cat) => cat !== id) : [...prev, id]
+    );
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -78,9 +84,14 @@ const DashboardSitesAdd = () => {
       formData.append("bonus", bonus);
       formData.append("link", link);
       formData.append("logo_url", logoUrl); // نرسل رابط الصورة الجاهز
-      formData.append("category_id", selectedCategory);
+      formData.append("category_id", selectedCategories);
       formData.append("rate", rate);
       formData.append("order", order);
+
+
+      selectedCategories.forEach((catId) =>
+        formData.append("category_ids[]", catId)
+      );
 
       const response = await axios.post(
         "https://www.betbonus24.com/api/admin/sites/",
@@ -218,16 +229,16 @@ const DashboardSitesAdd = () => {
     
 
             {/* Categories */}
-            <div className="flex flex-col  mb-1 mr-4 px-4 ">
-              <label className="font-extrabold mb-2 text-xl">فئة الموقع</label>
+            <div className="flex flex-col mb-1 mr-4 px-4 ">
+              <label className="font-extrabold mb-2 text-xl">فئات الموقع</label>
               <div className='flex flex-row flex-wrap gap-2'>
                 {categories.map((item, index) => (
                   <button
                     type="button"
                     key={index}
-                    onClick={() => setSelectedCategory(item.id)}
+                    onClick={() => toggleCategory(item.id)}
                     className={`px-4 py-1 font-semibold text-base rounded-md cursor-pointer transition-colors duration-300 ease-in-out
-                      ${selectedCategory === item.id ? 'bg-[#00cc66] text-white' : 'bg-[#009788] text-[#101B2D] hover:bg-[#00cc66] hover:text-white'}
+                      ${selectedCategories.includes(item.id) ? 'bg-[#00cc66] text-white' : 'bg-[#009788] text-[#101B2D] hover:bg-[#00cc66] hover:text-white'}
                     `}
                   >
                     {item.name}
