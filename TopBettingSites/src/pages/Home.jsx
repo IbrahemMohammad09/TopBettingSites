@@ -203,7 +203,6 @@ useEffect(() => {
       <div className='shadow-bottom mx-auto w-full px-4 py-2'></div>
 
       <div className="
-        
         max-w-[800px] 
         mx-auto 
         my-[30px] 
@@ -212,7 +211,6 @@ useEffect(() => {
         py-5 
         text-base 
         text-gray-300 
-        
         rounded-lg 
         leading-relaxed
         "
