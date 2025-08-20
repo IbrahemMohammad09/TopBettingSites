@@ -200,22 +200,8 @@ useEffect(() => {
           </div>
         )}
 
-      <div className='flex items-center justify-center shadow-bottom mx-auto w-full px-4'>
-        <h1 className="
-            text-[#009788] bg-gray-300 
-            px-4 py-2 
-            rounded-md 
-            mb-5 
-            font-extrabold 
-            block 
-            text-2xl
-            m-0
-            unicode-bidi-isolate
-        ">
-            {/* Which is Better: bet365 or bwin? */}
-            Articles Sections
-        </h1>
-      </div>
+      <div className='shadow-bottom mx-auto w-full px-4 py-2'></div>
+
       <div className="
         
         max-w-[800px] 
