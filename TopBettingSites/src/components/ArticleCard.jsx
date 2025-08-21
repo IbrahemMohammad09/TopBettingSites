@@ -20,7 +20,7 @@ export default function ArticleCard({ id, title, image, content }) {
       {/* محتوى المقال */}
       <div className="p-6 text-center border-l-4 border-[#00FF88] rounded-md ">
         {/* العنوان */}
-        <h2 className="text-3xl text-[#009788] font-bold mb-4">{title}</h2>
+        <h2 className="text-xl text-black font-bold mb-4">{title}</h2>
 
         {/* النص */}
         <p className="text-gray-700 leading-relaxed">

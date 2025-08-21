@@ -1,0 +1,26 @@
+/* حجم أكبر للمحرر */
+.ql-container {
+  min-height: 400px;       /* ارتفاع المحرر */
+  font-size: 18px;         /* حجم الخط داخل المحرر */
+  max-width: 1024px;         /* لا يتجاوز عرض الأب */
+  box-sizing: border-box;  /* يشمل البادينغ داخل العرض */
+}
+
+/* تنسيق شريط الأدوات */
+.ql-toolbar {
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  max-width: 100%;         /* لا يتجاوز عرض الأب */
+  box-sizing: border-box;
+}
+
+/* تنسيق مساحة الكتابة */
+.ql-editor {
+  padding: 20px;
+  line-height: 1.6;
+  max-width: 100%;         /* لا يتجاوز عرض الأب */
+  box-sizing: border-box;
+}
+
+/* تلميح: يمكنك تعديل اللون، الخط، المسافة كما تريد */

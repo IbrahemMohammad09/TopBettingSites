@@ -148,11 +148,8 @@ useEffect(() => {
   return (
     <div className="flex flex-col items-center justify-center">
       <h1 className="p-4 m-4 bg-[#009788] text-white border rounded-lg text-4xl font-bold">Bet Bouns 24</h1>
-      <p className="text-wrap px-4  mx-4 sm:mx-8 lg:mx-60 text-black text-center mx-auto  p-px">
-        Welcome to Bet Bonus 24 – your ultimate guide to the best sports betting sites!
-        Here you’ll find a complete list of trusted bookmakers along with their top welcome bonuses. 
-        But that’s not all – you can also filter and choose the perfect site based on your preferred payment methods, 
-        whether it’s PaySafeCard, PayPal, or many others.
+      <p className="text-wrap px-4  mx-4 sm:mx-8 lg:mx-60 text-black text-start mx-auto  p-px">
+      Welcome to Bet Bonus 24, your ultimate guide to the best sports betting sites! Here you’ll find a complete list of trusted bookmakers along with their top welcome bonuses. But that’s not all, you can also filter and choose the perfect site based on your preferred payment methods, whether it’s PaySafeCard, PayPal, or many others
       </p>
         {/* أزرار الفلترة */}
         <div className="flex items-center justify-start shadow-bottom w-full overflow-x-auto flex-nowrap sm:justify-center scrollbar-hide">
@@ -190,7 +187,6 @@ useEffect(() => {
               desc={item.text}
               bouns={item.bonus}
               url={item.link}
-              rate={item.rate}
             />
           ))
         )}

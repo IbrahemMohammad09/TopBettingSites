@@ -61,18 +61,6 @@ const DashboardSites = () => {
                                     <p className="font-semibold text-[#ffd700] animate-pulse-scale">
                                         Bonus: {item.bonus} %
                                     </p>
-                                    <div className="flex justify-center text-xl p-2">
-                                        {Array.from({ length: 5 }).map((_, i) => (
-                                        <FaStar
-                                            key={i}
-                                            className={
-                                            i < item.rate
-                                                ? "text-[#F6973F]"
-                                                : "text-[#F6973F] opacity-30"
-                                            }
-                                        />
-                                        ))}
-                                    </div>
                                 </div>
     
                                 {/* If you want external links, use <a> instead of <Link> */}

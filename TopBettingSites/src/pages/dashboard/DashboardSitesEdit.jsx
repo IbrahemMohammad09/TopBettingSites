@@ -17,7 +17,6 @@ const DashboardSitesEdit = () => {
   const [bonus, setBonus] = useState("");
   const [link, setLink] = useState("");
   const [logoUrl, setLogoUrl] = useState(""); 
-  const [rate, setRate] = useState("");
   const [order, setOrder] = useState("");
   const [error, setError] = useState(null);
 
@@ -49,7 +48,6 @@ const DashboardSitesEdit = () => {
       setName(selectSite.name);
       setText(selectSite.text);
       setLink(selectSite.link);
-      setRate(selectSite.rate);
       setOrder(selectSite.order);
       setBonus(selectSite.bonus);
       setLogoUrl(selectSite.logo_url);
@@ -111,7 +109,6 @@ const DashboardSitesEdit = () => {
         bonus: Number(bonus),
         link,
         logo_url: logoUrl,
-        rate: Number(rate),
         order: Number(order),
         category_ids: selectedCategories.map(cat => cat.id) // ✅ مصفوفة IDs
       };
@@ -205,21 +202,6 @@ const DashboardSitesEdit = () => {
                 value={link}
                 onChange={(e) => setLink(e.target.value)}
                 placeholder="رابط الموقع"
-                className="mr-3 w-full pl-3 border border-[#E9EAEC] rounded-lg"
-              />
-            </div>
-
-            {/* Rate */}
-            <div className="flex flex-col mb-1 mr-4 px-4 ">
-              <label className="font-extrabold text-xl">تقييم الموقع</label>
-              <input
-                type="number"
-                min="1"
-                max="5"
-                step="1"
-                value={rate}
-                onChange={(e) => setRate(e.target.value)}
-                placeholder="تقييم الموقع"
                 className="mr-3 w-full pl-3 border border-[#E9EAEC] rounded-lg"
               />
             </div>

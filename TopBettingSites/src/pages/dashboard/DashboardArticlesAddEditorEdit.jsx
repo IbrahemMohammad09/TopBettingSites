@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Editor } from "@tinymce/tinymce-react";
 import SideBar from "./SideBar";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { Api } from "../../constant/api";
+
+import ReactQuill from 'react-quill-new';
+import 'react-quill-new/dist/quill.snow.css';
+import './DashboardArticlesAddEditor.css'; // CSS مخصص للمحرر
 
 const DashboardArticlesAddEditorEdit = () => {
     const [content, setContent] = useState("");
@@ -63,6 +66,27 @@ const DashboardArticlesAddEditorEdit = () => {
           console.log(error);
         }
       };
+
+      const modules = {
+        toolbar: [
+          [{ 'font': [] }, { 'size': ['small', false, 'large', 'huge'] }],
+          ['bold', 'italic', 'underline', 'strike'],
+          [{ 'color': [] }, { 'background': [] }],
+          [{ 'align': [] }],
+          ['link', 'image', 'video'],
+          ['blockquote', 'code-block'],
+          ['clean']
+        ]
+      };
+    
+      const formats = [
+        'font', 'size',
+        'bold', 'italic', 'underline', 'strike',
+        'color', 'background',
+        'align',
+        'link', 'image', 'video',
+        'blockquote', 'code-block'
+      ];
       
 
   return (
@@ -72,43 +96,15 @@ const DashboardArticlesAddEditorEdit = () => {
             <h1 className='items-center justify-center text-center pt-4 text-3xl'>اهلا بك في لوحة التحكم</h1>
             <h1 className='items-center justify-center text-center m-4 p-4 text-xl'>هنا تقوم بتعديل بقية المقال</h1>
         
-            <Editor
-                apiKey="lfa4suk0msgy0iea3b6pla5z85qflmoetofmrer80dhwsmmw"
+            <ReactQuill
+                theme="snow"
                 value={content}
-                onEditorChange={(newContent) => setContent(newContent)}
-                init={{
-                height: 500,
-                menubar: true,
-                plugins: [
-                    "advlist", "autolink", "lists", "link", "image", "charmap",
-                    "preview", "anchor", "searchreplace", "visualblocks", "code",
-                    "fullscreen", "insertdatetime", "media", "table", "help",
-                    "wordcount", "emoticons"
-                ],
-                toolbar: `
-                    undo redo | formatselect fontselect fontsizeselect |
-                    bold italic underline strikethrough forecolor backcolor |
-                    alignleft aligncenter alignright alignjustify |
-                    bullist numlist outdent indent blockquote |
-                    h1 h2 h3 h4 h5 h6 |
-                    link image media table |
-                    emoticons |
-                    removeformat code
-                `,
-                font_size_formats: "10px 12px 14px 16px 18px 20px 24px 28px 32px 36px 48px 56px 72px",
-                style_formats: [
-                    { title: "العنوان الرئيسي", block: "h1" },
-                    { title: "عنوان فرعي", block: "h2" },
-                    { title: "عنوان صغير", block: "h3" },
-                    { title: "فقرة", block: "p" }
-                ],
-                image_title: true,
-                automatic_uploads: false,
-                images_file_types: "jpg,svg,webp",
-                }}
-            />
+                onChange={setContent}
+                modules={modules}
+                formats={formats}
+                />
 
-        <div className="flex m-4 justify-center">
+        <div className="flex pt-12  m-4 justify-center">
             <button 
                 onClick={handleSave} 
                 className="bg-[#009788] text-[#101B2D] border-0 px-6 py-2 font-semibold text-base rounded-md cursor-pointer transition-colors duration-300 ease-in-out hover:bg-[#00cc66] hover:text-white"

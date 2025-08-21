@@ -3,7 +3,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {FaStar} from "react-icons/fa";
 
-const Card = ({ img, title, desc, bouns, url,rate }) => {
+const Card = ({ img, title, desc, bouns, url }) => {
     const navigate = useNavigate();
     return (
         <div className="flex flex-col items-start  w-[350px] border rounded-lg shadow-md">
@@ -15,18 +15,7 @@ const Card = ({ img, title, desc, bouns, url,rate }) => {
                     <p className="font-semibold text-[#ffd700] animate-pulse-scale">
                         Bonus: {bouns} %
                     </p>
-                    <div className="flex justify-center text-xl p-2">
-                        {Array.from({ length: 5 }).map((_, i) => (
-                          <FaStar
-                            key={i}
-                            className={
-                              i < rate
-                                ? "text-[#F6973F]"
-                                : "text-[#F6973F] opacity-30"
-                            }
-                          />
-                        ))}
-                      </div>
+                    
                 </div>
 
                 {/* If you want external links, use <a> instead of <Link> */}
