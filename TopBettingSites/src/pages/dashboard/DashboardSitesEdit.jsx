@@ -85,7 +85,7 @@ const DashboardSitesEdit = () => {
       );
 
       setLogoUrl(response.data.url);
-      console.log("✅ Image uploaded:", response.data.url);
+      // console.log("✅ Image uploaded:", response.data.url);
     } catch (err) {
       console.error("❌ Error uploading logo:", err.response?.data || err.message);
       alert("فشل رفع الصورة");

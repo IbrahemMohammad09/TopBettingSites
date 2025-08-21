@@ -61,7 +61,7 @@ const DashboardSitesAdd = () => {
 
       // السيرفر لازم يرجع رابط الصورة
       setLogoUrl(response.data.url);
-      console.log("✅ Image uploaded:", response.data.url);
+      // console.log("✅ Image uploaded:", response.data.url);
     } catch (err) {
       console.error("❌ Error uploading logo:", err.response?.data || err.message);
       alert("فشل رفع الصورة");
@@ -90,7 +90,7 @@ const DashboardSitesAdd = () => {
         category_ids: selectedCategories
       };
       
-      console.log(payload)
+      // console.log(payload)
   
       const response = await axios.post(
         "https://www.betbonus24.com/api/admin/sites/",
@@ -103,7 +103,7 @@ const DashboardSitesAdd = () => {
         }
       );
   
-      alert("✅ تم إنشاء الموقع بنجاح");
+      // alert("✅ تم إنشاء الموقع بنجاح");
       navigate(`/dashboard/sites/`);
     } catch (err) {
       console.error("❌ Error creating site:", err.response?.data || err.message);
