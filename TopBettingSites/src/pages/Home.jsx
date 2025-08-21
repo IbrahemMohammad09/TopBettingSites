@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Card from '../components/Card';
-// import GoogleAd from '../components/GoogleAd';
+import GoogleAd from '../components/GoogleAd';
 import ArticleCard from '../components/ArticleCard';
 import { Api } from '../constant/api';
 import axios from 'axios';
@@ -250,7 +250,9 @@ useEffect(() => {
         )}
       </div>
 
-
+        <div className='min-h-[300px] w-full'>
+          <GoogleAd slot="2964874330" />
+        </div>
 
         <div className='flex flex-col w-full'>
             <div className="flex flex-row justify-center overflow-x-auto flex-nowrap bg-gray-300 w-full text-gray-300 px-4 py-7 text-center text-sm leading-relaxed">
@@ -467,11 +469,6 @@ useEffect(() => {
                 – All rights reserved.
                 </p>
             </div>
-
-            <div className='max-h-[10px]'>
-              {/* <GoogleAd slot="1234567890" /> */}
-            </div>
-
         </div>
     </div>
   );
