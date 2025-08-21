@@ -5,6 +5,7 @@ import Login from "./pages/dashboard/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 const HomePage = lazy(() => import("./pages/Home"));
+const ArticlePage = lazy(() => import("./pages/Article"))
 const ErrorPage = lazy(() => import("./pages/ErrorPage"));
 
 const DashoardHome = lazy(() => import("./pages/dashboard/DashboardHome"))
@@ -18,16 +19,17 @@ const DashboardSitesEdit = lazy(() => import("./pages/dashboard/DashboardSitesEd
 const DashboardArticles = lazy(() => import("./pages/dashboard/DashboardArticles"))
 const DashboardArticlesAdd = lazy(() => import("./pages/dashboard/DashboardArticlesAdd"))
 const DashboardArticlesEdit = lazy(() => import("./pages/dashboard/DashboardArticlesEdit"))
-
+const DashboardArticlesAddEditor = lazy(() => import('./pages/dashboard/DashboardArticlesAddEditor'))
+const DashboardArticlesAddEditorEdit = lazy(() => import('./pages/dashboard/DashboardArticlesAddEditorEdit'))
 
 
 
 function App() {
   return (
     <BrowserRouter>
-        <Routes>
+        <Routes> 
           <Route path="/" element={<HomePage />} />
-
+          <Route path="/article/:id" element={<ArticlePage />} />
           <Route path="/dashboard" element={<Login />} />
 
           {Object.entries({
@@ -40,6 +42,8 @@ function App() {
             "/dashboard/articles" : DashboardArticles,
             "/dashboard/articles/add" : DashboardArticlesAdd,
             "/dashboard/articles/edit/:id" : DashboardArticlesEdit,
+            "/dashboard/articles/add/editor/:id" : DashboardArticlesAddEditor,
+            "/dashboard/articles/edit/editor/:id" : DashboardArticlesAddEditorEdit,
 
             }).map(([path, Component]) => (
               <Route key={path} path={path} element={<ProtectedRoute><Component /></ProtectedRoute>} />

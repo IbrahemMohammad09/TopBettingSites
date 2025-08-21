@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import image from '../../public/logo.PNG';
 import Card from '../components/Card';
 // import GoogleAd from '../components/GoogleAd';
 import ArticleCard from '../components/ArticleCard';
@@ -224,13 +223,14 @@ useEffect(() => {
         >
         {showArticle.map((item) => (
         <ArticleCard 
+          id={item.id}  
           key={item.id} 
           title={item.header}
           image={item.image_url}
           content={item.text}
           />
         ))}
-        {article.length > 3 && (
+            {article.length > 3 && (
                   <button
                   onClick={toggleArticles}
                   className="bg-[#00FF88] text-[#101B2D] border-0 px-6 py-1 font-semibold text-base rounded-md cursor-pointer my-5 mx-auto block transition-colors duration-300 ease-in-out hover:bg-[#00cc66] hover:text-white"

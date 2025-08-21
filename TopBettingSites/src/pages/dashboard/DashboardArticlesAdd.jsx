@@ -72,8 +72,8 @@ const DashboardArticlesAdd = () => {
         }
       );
 
-      // console.log("✅ Site created:", response.data);
-      navigate(`/dashboard/articles/`);
+      const idNav = response.data.id
+      navigate(`/dashboard/articles/add/editor/${idNav}`);
     } catch (err) {
       console.error("❌ Error creating site:", err.response?.data || err.message);
       setError(err.response?.data || "Something went wrong");
@@ -160,7 +160,7 @@ const DashboardArticlesAdd = () => {
                         type="submit"
                         className='mt-4 bg-[#009788] text-[#101B2D] border-0 px-6 py-1 font-semibold text-base rounded-md cursor-pointer transition-colors duration-300 ease-in-out hover:bg-[#00cc66] hover:text-white'
                         >
-                        حفظ المقال
+                          اكمل المقال
                     </button>
                 </form>
             </div>

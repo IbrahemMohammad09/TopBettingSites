@@ -1,38 +1,38 @@
-import React, { useState } from "react";
-import { Editor } from "@tinymce/tinymce-react";
+import React from "react";
+import { Link } from "react-router-dom";
 
 const ErrorPage = () => {
 
-  const [content, setContent] = useState("");
 
-  const handleSave = () => {
-    console.log(content); // هنا سترسل المحتوى للباك
-  };
   return (
-    <div>
-<Editor
-        apiKey="lfa4suk0msgy0iea3b6pla5z85qflmoetofmrer80dhwsmmw" // ضع هنا الـ API Key
-        value={content}
-        onEditorChange={(newContent) => setContent(newContent)}
-        init={{
-          height: 400,
-          menubar: true,
-          plugins: [
-            "advlist autolink lists link image charmap print preview anchor",
-            "searchreplace visualblocks code fullscreen",
-            "insertdatetime media table paste code help wordcount"
-          ],
-          toolbar:
-            "undo redo | formatselect | bold italic underline | \
-            alignleft aligncenter alignright alignjustify | \
-            bullist numlist outdent indent | link image | code",
-        }}
-      />
+    <div className="pt-20 h-screen">
+      <div className="flex flex-col items-center justify-center  text-center py-20 p-4">
+        {/* Page Title with Animation */}
+        <h1
+          className="text-6xl font-bold text-[#00FF88] mb-4"
+        >
+          Oops! Error 404
+        </h1>
 
-    <button onClick={handleSave} style={{ marginTop: "10px" }}>
-      حفظ المقال
-    </button>
-  </div>
+        {/* Message with Animation */}
+        <p
+          className="text-lg text-gray-600 mb-6"
+        >
+          Something went wrong! The page you are looking for does not exist.
+        </p>
+
+        {/* Button with Animation */}
+        <div>
+          <Link
+            to="/"
+            className="bg-[#00FF88] text-[#101B2D] border-0 px-6 py-1 font-semibold text-base rounded-md cursor-pointer my-5 mx-auto block transition-colors duration-300 ease-in-out
+            hover:bg-[#00cc66] hover:text-white"
+          >
+            Go Back to Home
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 };
 

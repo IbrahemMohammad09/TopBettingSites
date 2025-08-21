@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import SideBar from './SideBar'
 import { useState } from 'react';
 import axios from 'axios';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Api } from '../../constant/api';
 
 const DashboardArticlesEdit = () => {
@@ -111,7 +111,7 @@ const DashboardArticlesEdit = () => {
             <h1 className='items-center justify-center text-center text-3xl '>اهلا بك في لوحة التحكم</h1>
             <div className='items-center justify-center text-center'>
                 <h1 className='text-xl mb-4 px-2'>هنا يمكنك تعديل المقال</h1>
-                <form className='mb-8' onSubmit={handleSubmit}>
+                <form className='mb-8'>
                     {/* Logo Upload */}
                     <div className="flex flex-col mb-1 mr-4 px-4">
                         <label className="font-extrabold text-xl">صورة المقال</label>
@@ -178,13 +178,25 @@ const DashboardArticlesEdit = () => {
                             className="mr-3 w-full pl-3 border border-[#E9EAEC] rounded-lg"
                         />
                     </div>
+                    
+                    <div className="flex flex-col m-4 justify-center">
+                      <Link
+                          to={`/dashboard/articles/edit/editor/${id}`}
+                          className=' mt-4 bg-[#009788] text-[#101B2D] border-0 px-6 py-1 font-semibold text-base rounded-md cursor-pointer transition-colors duration-300 ease-in-out hover:bg-[#00cc66] hover:text-white'
+                          >
+                         المتابعة لتعديل بقية المقال
+                      </Link>
 
-                    <button
-                        type="submit"
-                        className='mt-4 bg-[#009788] text-[#101B2D] border-0 px-6 py-1 font-semibold text-base rounded-md cursor-pointer transition-colors duration-300 ease-in-out hover:bg-[#00cc66] hover:text-white'
-                        >
-                        حفظ المقال
-                    </button>
+                      <button
+                          type="submit"
+                          onClick={handleSubmit}
+                          className=' mt-4 bg-[#009788] text-[#101B2D] border-0 px-6 py-1 font-semibold text-base rounded-md cursor-pointer transition-colors duration-300 ease-in-out hover:bg-[#00cc66] hover:text-white'
+                          >
+                          حفظ المقال
+                      </button>
+
+                    </div>
+
                 </form>
             </div>
             

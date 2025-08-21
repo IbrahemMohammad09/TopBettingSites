@@ -6,6 +6,7 @@ const Api = {
         Sites: `${URL}api/users/sites/`,
         SitesByCategory: `${URL}api/users/sites/by-category/${id}/`,
         Articles: URL+'api/admin/articles/',
+        Code: URL+`api/admin/codes/${id}/`
     }),
     POST: {
         LOGIN: `${URL}api/admin/login/`,
