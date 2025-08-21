@@ -33,16 +33,22 @@ const DashboardArticles = () => {
                     >اضافة مقال
                 </Link>
             </div>    
-            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-6 p-4'>
-                {article.map((item,index) => (
-                    <ArticleCardDashboard 
-                        key={item.id} 
-                        title={item.header}
-                        image={item.image_url}
-                        content={item.text}
-                        id={item.id}
-                    />
-                ))}
+            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-6 p-4 text-center justify-center'>
+                {article.length === 0 ? (
+                    <p className="text-gray-500 pt-8 text-lg font-semibold">
+                        لا يوجد اي مقال بعد
+                    </p>
+                ):(
+                    article.map((item,index) => (
+                        <ArticleCardDashboard 
+                            key={item.id} 
+                            title={item.header}
+                            image={item.image_url}
+                            content={item.text}
+                            id={item.id}
+                        />
+                    ))
+                )}
             </div>
         </div>
     </div>

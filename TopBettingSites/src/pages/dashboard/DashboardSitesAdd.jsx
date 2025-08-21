@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import SideBar from './SideBar'
 import { useNavigate } from 'react-router-dom';
 import { Api } from '../../constant/api';
@@ -8,6 +8,7 @@ const DashboardSitesAdd = () => {
   const [categories, setCategories] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]); // 🟢 أكثر من فئة
   const navigate = useNavigate();
+  const fileInputRef = useRef(null)
 
   // site states
   const [name, setName] = useState("");
@@ -76,42 +77,41 @@ const DashboardSitesAdd = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
-
+  
     try {
-      const formData = new FormData();
-      formData.append("name", name);
-      formData.append("text", text);
-      formData.append("bonus", bonus);
-      formData.append("link", link);
-      formData.append("logo_url", logoUrl); // نرسل رابط الصورة الجاهز
-      formData.append("category_id", selectedCategories);
-      formData.append("rate", rate);
-      formData.append("order", order);
-
-
-      selectedCategories.forEach((catId) =>
-        formData.append("category_ids[]", catId)
-      );
-
+      const payload = {
+        name,
+        text,
+        bonus: Number(bonus),
+        link,
+        logo_url: logoUrl,
+        rate: Number(rate),
+        order: Number(order),
+        category_ids: selectedCategories
+      };
+      
+      console.log(payload)
+  
       const response = await axios.post(
         "https://www.betbonus24.com/api/admin/sites/",
-        formData,
+        payload,
         {
           headers: {
             "Authorization": `Bearer <access_token>`,
-            "Content-Type": "multipart/form-data",
+            "Content-Type": "application/json",
           },
         }
       );
-
-      // console.log("✅ Site created:", response.data);
+  
+      alert("✅ تم إنشاء الموقع بنجاح");
       navigate(`/dashboard/sites/`);
     } catch (err) {
       console.error("❌ Error creating site:", err.response?.data || err.message);
       setError(err.response?.data || "Something went wrong");
     }
   };
-
+  
+  
   return (
     <div className='md:flex gap-14 mb-8'>
       <SideBar />
@@ -134,7 +134,12 @@ const DashboardSitesAdd = () => {
                     {/* زر حذف */}
                     <button
                       type="button"
-                      onClick={(e) => { e.stopPropagation(); setLogoUrl(""); }}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setLogoUrl("");
+                        if (fileInputRef.current) fileInputRef.current.value = ""; // مسح قيمة الـ input
+                      }}
+                      
                       className="absolute top-0 right-0 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-700"
                     >
                       &times;
@@ -144,11 +149,13 @@ const DashboardSitesAdd = () => {
                   <span className="text-gray-500">ارفع الصورة</span>
                 )}
                 <input
+                  ref={fileInputRef}   // هنا الربط الصحيح
                   type="file"
                   accept="image/*"
                   onChange={handleLogoUpload}
                   className="hidden"
                 />
+
               </label>
             </div>
 

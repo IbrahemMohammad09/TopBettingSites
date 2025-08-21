@@ -46,17 +46,23 @@ const DashboardHome = () => {
                     >اضافة فئة
                 </Link>
             </div>
-            <div className='flex flex-col'>
-                {Categories.map((item,index) => (
-                    <div key={index} className="flex flex-row mt-8 bg-gray-700 m-4 p-4 items-center justify-between">
-                        <h1 className="text-white font-bold">{item.name}</h1>
-                        <h1 className="text-white font-bold">{"رقم العرض : "+item.order}</h1>
-                        <div className="flex space-x-4">
-                            <button onClick={()=>{deleteCat(item.id , item.name)}}><MdDeleteForever className="cursor-pointer text-red-500 hover:text-red-700 text-xl" /></button>
-                            <Link to={`/dashboard/categories/edit/${item.id}`}><MdModeEditOutline className="cursor-pointer text-yellow-400 hover:text-yellow-600 text-xl" /></Link>
+            <div className='flex flex-col justify-center text-center'>
+                {Categories.length === 0 ? (
+                <p className="text-gray-500 pt-8 text-lg font-semibold">
+                    لا يوجد فئات بعد
+                </p>
+                ):(
+                    Categories.map((item,index) => (
+                        <div key={index} className="flex flex-row mt-8 bg-gray-700 m-4 p-4 items-center justify-between">
+                            <h1 className="text-white font-bold">{item.name}</h1>
+                            <h1 className="text-white font-bold">{"رقم العرض : "+item.order}</h1>
+                            <div className="flex space-x-4">
+                                <button onClick={()=>{deleteCat(item.id , item.name)}}><MdDeleteForever className="cursor-pointer text-red-500 hover:text-red-700 text-xl" /></button>
+                                <Link to={`/dashboard/categories/edit/${item.id}`}><MdModeEditOutline className="cursor-pointer text-yellow-400 hover:text-yellow-600 text-xl" /></Link>
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))
+                )}
             </div>
         </div>
     </div>

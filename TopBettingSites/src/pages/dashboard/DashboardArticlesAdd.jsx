@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import SideBar from './SideBar'
 import { useState } from 'react';
 import axios from 'axios';
@@ -13,7 +13,7 @@ const DashboardArticlesAdd = () => {
 
     const navigate = useNavigate();
     
-
+    const fileInputRef = useRef(null);
 
 
     // رفع الصورة
@@ -103,7 +103,11 @@ const DashboardArticlesAdd = () => {
                                 {/* زر حذف */}
                                 <button
                                 type="button"
-                                onClick={(e) => { e.stopPropagation(); setLogoUrl(""); }}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setLogoUrl("");
+                                  if (fileInputRef.current) fileInputRef.current.value = ""; // مسح قيمة الـ input
+                                }}
                                 className="absolute top-0 right-0 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-700"
                                 >
                                 &times;
@@ -113,11 +117,12 @@ const DashboardArticlesAdd = () => {
                             <span className="text-gray-500">ارفع الصورة</span>
                             )}
                             <input
-                            type="file"
-                            accept="image/*"
-                            onChange={handleLogoUpload}
-                            className="hidden"
-                            />
+                              ref={fileInputRef}   // هنا الربط الصحيح
+                              type="file"
+                              accept="image/*"
+                              onChange={handleLogoUpload}
+                              className="hidden"
+                            />  
                         </label>
                     </div>
                     {/* Name */}

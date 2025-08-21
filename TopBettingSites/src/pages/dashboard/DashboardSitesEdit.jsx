@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import SideBar from './SideBar'
 import { useParams, useNavigate } from 'react-router-dom';
 import { Api } from '../../constant/api';
@@ -9,6 +9,7 @@ const DashboardSitesEdit = () => {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const navigate = useNavigate();
   const { id } = useParams();
+  const fileInputRef = useRef(null)
 
   // site states
   const [name, setName] = useState("");
@@ -152,7 +153,11 @@ const DashboardSitesEdit = () => {
                     />
                     <button
                       type="button"
-                      onClick={(e) => { e.stopPropagation(); setLogoUrl(""); }}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setLogoUrl("");
+                        if (fileInputRef.current) fileInputRef.current.value = ""; // مسح قيمة الـ input
+                      }}
                       className="absolute top-0 right-0 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-700"
                     >
                       &times;
@@ -162,6 +167,7 @@ const DashboardSitesEdit = () => {
                   <span className="text-gray-500">ارفع الصورة</span>
                 )}
                 <input
+                  ref={fileInputRef}   // هنا الربط الصحيح
                   type="file"
                   accept="image/*"
                   onChange={handleLogoUpload}

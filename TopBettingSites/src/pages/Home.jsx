@@ -127,11 +127,11 @@ useEffect(() => {
     setShowArticle(article.slice(0, 3));
   }, [article]);
 
-  useEffect(() => {
-    if (Categories.length > 0) {
-      const firstCategoryName = Categories[0].name;
-    }
-  }, [Categories , sites]);
+  // useEffect(() => {
+  //   if (Categories.length > 0) {
+  //     const firstCategoryName = Categories[0].name;
+  //   }
+  // }, [Categories , sites]);
   
 
 
@@ -176,8 +176,13 @@ useEffect(() => {
 
 
       {/* عرض الكروت */}
-      <div className='flex flex-row p-4 gap-4 flex-wrap justify-center '>
-        {displayedSites.map((item) => (
+      <div className="flex flex-row p-4 gap-4 flex-wrap justify-center ">
+        {displayedSites.length === 0 ? (
+          <p className="text-gray-500 text-lg font-semibold">
+            there is  No sites in this category yet
+          </p>
+          ) : (
+          displayedSites.map((item) => (
             <Card
               key={item.id}
               img={item.logo_url}
@@ -187,8 +192,10 @@ useEffect(() => {
               url={item.link}
               rate={item.rate}
             />
-        ))}
+          ))
+        )}
       </div>
+
       {sites.length > 10 && (
           <div className="
           max-w-[800px] 
@@ -221,15 +228,22 @@ useEffect(() => {
         leading-relaxed
         "
         >
-        {showArticle.map((item) => (
-        <ArticleCard 
-          id={item.id}  
-          key={item.id} 
-          title={item.header}
-          image={item.image_url}
-          content={item.text}
-          />
-        ))}
+        {showArticle.length === 0 ? (
+          <p className="text-gray-500 text-lg font-semibold text-center w-full">
+            there is  No articles yet
+          </p>
+        ) : (
+          showArticle.map((item) => (
+            <ArticleCard 
+              id={item.id}  
+              key={item.id} 
+              title={item.header}
+              image={item.image_url}
+              content={item.text}
+            />
+          ))
+        )}
+
             {article.length > 3 && (
                   <button
                   onClick={toggleArticles}
