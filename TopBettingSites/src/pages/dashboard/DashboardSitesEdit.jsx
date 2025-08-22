@@ -62,8 +62,8 @@ const DashboardSitesEdit = () => {
     const file = e.target.files[0];
     if (!file) return;
 
-    if (file.size > 50 * 1024) {
-      alert("❌ حجم الصورة يجب أن لا يزيد عن 50 كيلوبايت");
+    if (file.size > 100 * 1024) {
+      alert("❌ حجم الصورة يجب أن لا يزيد عن 100 كيلوبايت");
       return;
     }
 

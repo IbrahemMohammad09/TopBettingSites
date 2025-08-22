@@ -55,8 +55,8 @@ const Article = () => {
                     className="w-72 h-72 object-cover mb-4 md:mb-0 md:mr-4"
                 />
             )}
-            <div className="flex flex-col text-center">
-                <h2 className="text-xl text-black font-bold mb-4">{article.header}</h2>
+            <div className="flex flex-col text-start">
+                <h2 className="text-xl text-black text-center font-bold mb-4">{article.header}</h2>
                 <p className="text-gray-700 m-4 leading-relaxed">
                     {article.text}
                 </p>

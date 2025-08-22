@@ -48,8 +48,8 @@ const DashboardArticlesEdit = () => {
     if (!file) return;
 
     // تحقق من الحجم (50KB)
-    if (file.size > 50 * 1024) {
-      alert("❌ حجم الصورة يجب أن لا يزيد عن 50 كيلوبايت");
+    if (file.size > 100 * 1024) {
+      alert("❌ حجم الصورة يجب أن لا يزيد عن 100 كيلوبايت");
       return;
     }
 
