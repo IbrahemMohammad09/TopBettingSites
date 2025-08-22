@@ -22,7 +22,7 @@ const DashboardArticlesAddEditorEdit = () => {
         const selectArt = response.data.find(art => String(art.id) === id);
     
         if (!selectArt) {
-            setError('Site not found');
+            setError('article not found');
             setTimeout(() => navigate('/dashboard/home'), 2000);
             return;
         }
