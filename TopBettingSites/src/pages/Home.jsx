@@ -250,9 +250,9 @@ useEffect(() => {
         )}
       </div>
 
-        <div className='min-h-[300px] w-full'>
+        {/* <div className='min-h-[300px] w-full'>
           <GoogleAd slot="2964874330" />
-        </div>
+        </div> */}
 
         <div className='flex flex-col w-full'>
             <div className="flex flex-row justify-center overflow-x-auto flex-nowrap bg-gray-300 w-full text-gray-300 px-4 py-7 text-center text-sm leading-relaxed">
