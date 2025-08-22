@@ -82,6 +82,7 @@ const DashboardSites = () => {
                                     </Link>
                                 )}
                             </div>
+                            <p className='p-4 pt-0 text-lg text-black w-full'>{"ترتيب العرض : "+item.order}</p>
                             {/* <p className='p-4 pt-0 text-lg text-black w-full'>{"اسم الفئة : "+item.category.name}</p> */}
                             <div className="p-4 pt-0 text-lg text-black w-full">
                                 <p>الفئات :</p>
@@ -92,8 +93,8 @@ const DashboardSites = () => {
                                 </ul>
                             </div>
     
-                            {/* <p className='p-4 pt-0 text-lg text-black w-full'>{"ترتيب العرض : "+item.order}</p> */}
-                            <p className='p-4 pt-0  w-full'>{item.link}</p>
+
+                            <p className='p-4 pt-0  w-full  break-words'>{item.link}</p>
                             <p className='p-4 pt-0  w-full'>{item.text}</p>
                             
                             <div className='flex flex-row pt-0 p-4 text-2xl justify-center items-center text-center'>
