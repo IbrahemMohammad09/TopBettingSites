@@ -18,7 +18,7 @@ export default function ArticleCard({ id, title, image, content }) {
       <img src={image} alt={title} className="w-72 h-72 object-cover " />
 
       {/* محتوى المقال */}
-      <div className="p-6 text-center border-l-4 border-[#00FF88] rounded-md ">
+      <div className="p-6 text-start border-l-4 border-[#00FF88] rounded-md ">
         {/* العنوان */}
         <h2 className="text-xl text-black font-bold mb-4">{title}</h2>
 
